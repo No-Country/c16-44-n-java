@@ -1,14 +1,16 @@
 .search {
   display: flex;
+  flex-grow: 2;
 }
 
 .search__bar {
   border: 0;
   background-color: #fff;
-}
-
-.search__bar::placeholder {
+  color: black;
   padding-inline-start: 5px;
+  outline: none;
+  flex-grow: 2;
+  border-radius: 7px 0 0 7px;
 }
 
 .search__btn {
@@ -17,6 +19,8 @@
   width: 50px;
   height: 50px;
   position: relative;
+  border-radius: 0 7px 7px 0;
+  cursor: pointer;
 }
 
 .search__btn::after {
