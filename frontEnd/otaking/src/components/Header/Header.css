@@ -16,7 +16,6 @@
 }
 
 .header__menu {
-  height: max-content;
   background-color: transparent;
   border: none;
   font-family: inherit;
@@ -45,7 +44,7 @@
 .logo__title {
   font-weight: 700;
   font-size: 24px;
-  color: #f9CE10;
+  color: #fff;
 }
 
 .header__user {
