@@ -1,0 +1,49 @@
+.header {
+  background-color: #040f3c;
+  height: 80px;
+  display: flex;
+  align-items: center;
+}
+
+.header__wrapper {
+  display: flex;
+  column-gap: 30px;
+  align-items: center;
+}
+
+.header__button {
+  height: max-content;
+  background-color: transparent;
+  border: none;
+  font-family: inherit;
+  font-size: 24px;
+}
+
+.header__arrow {
+  width: 15px;
+  height: 15px;
+}
+
+.logo {
+  display: flex;
+  gap: 12px;
+  margin-inline-start: 50px;
+  align-items: center;
+}
+
+.logo__crown {
+  width: 40px;
+  height: 40px;
+  position: relative;
+  bottom: 4px;
+}
+
+.logo__title {
+  font-weight: 700;
+  font-size: 24px;
+}
+
+.btn_cart {
+  border: 0;
+  background-image: url('../../../public/bitcoin-icons--cart-filled.svg');
+}
