@@ -1,6 +1,7 @@
 .greeting-banner {
   display: flex;
   height: 560px;
+  width: 100%;
 }
 
 .greeting-banner__mssg {
