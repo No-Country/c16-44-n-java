@@ -1,0 +1,12 @@
+.page {
+  margin: auto;
+  max-width: 1440px;
+  max-height: 100svh;
+}
+
+.main {
+  display: flex;
+  flex-direction: column;
+  row-gap: 40px;
+  align-items: center;
+}

@@ -1,0 +1,71 @@
+.header {
+  background-color: #040f3c;
+  height: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  column-gap: 30px;
+}
+
+.header__wrapper {
+  display: flex;
+  column-gap: 30px;
+  align-items: center;
+  width: 100%;
+  max-width: 870px;
+}
+
+.header__menu {
+  background-color: transparent;
+  border: none;
+  font-family: inherit;
+  font-size: 24px;
+}
+
+.header__arrow {
+  width: 15px;
+  height: 15px;
+}
+
+.logo {
+  display: flex;
+  gap: 12px;
+  margin-inline-start: 50px;
+  align-items: center;
+}
+
+.logo__crown {
+  width: 40px;
+  height: 40px;
+  position: relative;
+  bottom: 4px;
+}
+
+.logo__title {
+  font-weight: 700;
+  font-size: 24px;
+  color: #fff;
+}
+
+.header__user {
+  display: flex;
+  column-gap: 15px;
+  margin-inline-end: 50px;
+}
+
+.btn_cart, .btn_user {
+  width: 50px;
+  height: 50px;
+  border: 0;
+  border-radius: 50%;
+  background: no-repeat center / 80%;
+  cursor: pointer;
+}
+
+.btn_cart {
+  background-image: url('../../../public/bitcoin-icons--cart-filled.svg');
+}
+
+.btn_user {
+  background-image: url('../../../public/ph--user-fill.svg')
+}
