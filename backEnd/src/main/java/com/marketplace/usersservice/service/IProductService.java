@@ -16,7 +16,7 @@ public interface IProductService {
     Optional<Product> findProductById(Long product_id);
     List<Product> getProductsOrderedByPrice();
     List<Product> getProductsOrderedByPriceASC();
-    List<Product> findByIdUser(Long id);
-    Product saveByUser(ProductDTO productDTO, Long id);
+    List<Product> getAllProductsOrderedByNameAsc();
+    public List<Product> getAllProductsOrderedByNameDesc();
     void saveImages(MultipartFile mainFile, List<MultipartFile> files, Long productId);
 }

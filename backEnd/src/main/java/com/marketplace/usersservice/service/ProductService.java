@@ -27,7 +27,6 @@ public class ProductService implements IProductService{
 
     @Autowired
     private ProductCategoryRepository productCategoryRepository;
-
     @Autowired
     private ImageRepository ImageRepository;
 
@@ -65,10 +64,10 @@ public class ProductService implements IProductService{
     public Product saveProduct(ProductDTO productDTO) {
         Product product = new Product();
         product.setName(productDTO.getName());
+        product.setImage(productDTO.getImage());
         product.setPrice(productDTO.getPrice());
         product.setStock(productDTO.getStock());
         product.setBrand(productDTO.getBrand());
-        product.setUserId(productDTO.getUserId());
 
         ProductCategory productCategory;
            if (productDTO.getCategory()!= null && productDTO.getCategory().getId() != null) {
@@ -100,28 +99,14 @@ public class ProductService implements IProductService{
     public List<Product> getProductsOrderedByPriceASC() {
        return productRepository.findAllByOrderByPriceDesc();
     }
+
     @Override
-    public List<Product> findByIdUser(Long id) {
-        return productRepository.findByUserId(id);
+    public List<Product> getAllProductsOrderedByNameAsc() {
+        return productRepository.findAllOrderedByNameAsc();
     }
-
     @Override
-    public Product saveByUser(ProductDTO productDTO, Long id) {
-        Product product = new Product();
-        product.setName(productDTO.getName());
-        product.setPrice(productDTO.getPrice());
-        product.setStock(productDTO.getStock());
-        product.setBrand(productDTO.getBrand());
-        product.setUserId(id); // Asignar el ID de usuario al producto
-        ProductCategory productCategory;
-        if (productDTO.getCategory()!= null && productDTO.getCategory().getId() != null) {
-            productCategory = productCategoryRepository.findById(productDTO.getCategory().getId()).orElseThrow(() -> new IllegalArgumentException("ProductCategory with ID " + productDTO.getCategory().getId() + " not found."));
-        } else {
-            productCategory = ProductCategory.getDefaultProductCategory();
-        }
-        product.setCategory(productCategory);
-
-        return productRepository.save(product);
+    public List<Product> getAllProductsOrderedByNameDesc() {
+        return productRepository.findAllOrderedByNameDesc();
     }
 
 

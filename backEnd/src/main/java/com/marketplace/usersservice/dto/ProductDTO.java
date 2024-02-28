@@ -1,5 +1,6 @@
 package com.marketplace.usersservice.dto;
 
+import com.marketplace.usersservice.model.Image;
 import com.marketplace.usersservice.model.ProductCategory;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -16,7 +17,7 @@ public class ProductDTO {
     private int stock;
     private String brand;
     private ProductCategory Category;
-    private Long userId;
+    private Image image;
 
 
 }

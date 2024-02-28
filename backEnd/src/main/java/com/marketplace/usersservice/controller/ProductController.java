@@ -1,3 +1,4 @@
+
 package com.marketplace.usersservice.controller;
 
 import java.util.List;
@@ -50,11 +51,7 @@ public class ProductController {
     public Product save(@RequestBody ProductDTO productDTO) {
         return productService.saveProduct(productDTO);
     }
-    @PostMapping("/create-by-user/{id}")
-    @ResponseStatus(HttpStatus.CREATED)
-    public Product saveByUser(@RequestBody ProductDTO productDTO, @PathVariable Long id) {
-        return productService.saveByUser(productDTO, id);
-    }
+
     @GetMapping("/all")
     public ResponseEntity<?> findAllProduct() {
         return ResponseEntity.ok(productService.getAllProducts());
@@ -64,18 +61,21 @@ public class ProductController {
         return productService.findProductById(id);
     }
 
-    @GetMapping("/search-by-user/{id}")
-    public ResponseEntity<?> findByIdUser(@PathVariable Long id){
-        return ResponseEntity.ok(productService.findByIdUser(id));
-
-    }
     @GetMapping("/low-to-high")
     public ResponseEntity<?>  showLowestToHighestPrices(){
         return ResponseEntity.ok(productService.getProductsOrderedByPriceASC());
     }
-    @GetMapping("/hig-to-low")
+    @GetMapping("/high-to-low")
     public ResponseEntity<?>  showHighestToLowetsPrices(){
         return ResponseEntity.ok(productService.getProductsOrderedByPrice());
+    }
+    @GetMapping("/ordered-by-name-asc")
+    public ResponseEntity<?>  showOrderedByNameASC(){
+        return ResponseEntity.ok(productService.getAllProductsOrderedByNameAsc());
+    }
+    @GetMapping("/ordered-by-name-des")
+    public ResponseEntity<?>  showOrderedByNameDES(){
+        return ResponseEntity.ok(productService.getAllProductsOrderedByNameDesc());
     }
 
 
