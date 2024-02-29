@@ -1,0 +1,28 @@
+.form {
+  padding: 40px 30px;
+  background-color: #253857;
+  border-radius: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.form__menu {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.form__btn_type_sbm {
+  background-color: #FD710F;
+}
+
+.form__btn_type_cl {
+  background-color: #C22700;
+}
+
+.form__btn {
+  font-size: 18px;
+  width: 150px;
+  height: 45px;
+  border-radius: 12px;
+}

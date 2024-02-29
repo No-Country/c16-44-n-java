@@ -1,3 +1,5 @@
+'use client'
+
 import { useState, useCallback, useEffect, useRef } from "react";
 
 export default function usePopup(...theModals) {
@@ -26,7 +28,7 @@ export default function usePopup(...theModals) {
 
     function handleListenerClose(e) {
       const
-        hasClicked = ['popup_active', 'popup__image-container']
+        hasClicked = ['popup_open']
           .some(click => e.target.classList.contains(click)),
         escPressed = e.key === 'Escape';
 

@@ -104,6 +104,14 @@ li {
   list-style: none;
 }
 
+fieldset {
+  border: unset;
+}
+
+button {
+  border: none;
+}
+
 @media (prefers-color-scheme: dark) {
   html {
     color-scheme: dark;
