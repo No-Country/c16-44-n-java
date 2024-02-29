@@ -14,7 +14,6 @@ import org.springframework.web.multipart.MultipartFile;
 import com.marketplace.usersservice.dto.ProductDTO;
 import com.marketplace.usersservice.model.Product;
 import com.marketplace.usersservice.service.IProductService;
-import com.marketplace.usersservice.service.ProductService;
 
 @RestController
 @RequestMapping ("/v1/product")
@@ -37,6 +36,24 @@ public class ProductController {
         } catch (Exception e) {
             System.out.println(e.getMessage());
             return new ResponseEntity<>(HttpStatus.NOT_IMPLEMENTED);
+        }
+    }
+
+    @GetMapping("/category/{name}")
+    public ResponseEntity<?> findByCategory(@PathVariable String name) {
+        try  {
+            return ResponseEntity.ok(productService.findByCategory(name));
+        } catch (Exception e) {
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        }
+    }
+
+    @GetMapping("/search_text/{text}")
+    public ResponseEntity<?> findByText(@PathVariable String text) {
+        try  {
+            return ResponseEntity.ok(productService.findByText(text));
+        } catch (Exception e) {
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         }
     }
 
