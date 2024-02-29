@@ -33,7 +33,7 @@ export default function Header() {
       </div>
       <menu className={`header__menu-user menu${userMenu ? ' menu_open' : ''}`}>
         <ul className='menu__list'>
-          <li className='menu__item'>Iniciar sesión</li>
+          <li ><button className='menu__item' data-popup='signIn' onClick={handleMenuUserBtn}>Iniciar sesión</button></li>
           <li><button className='menu__item' data-popup='signUp' onClick={handleMenuUserBtn}>Registrarse</button></li>
         </ul>
       </menu>
