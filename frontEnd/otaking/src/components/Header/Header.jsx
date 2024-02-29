@@ -1,9 +1,13 @@
+'use client'
 import './Header.css';
 import crown from '../../../public/crown.svg';
 import Image from 'next/image';
 import Searchbar from '../Searchbar/Searchbar';
+import { useState } from 'react';
 
 export default function Header() {
+  const [userMenu, setUserMenu] = useState(false);
+
   return (
     <header className='header'>
       <div className='header__wrapper'>
@@ -17,9 +21,15 @@ export default function Header() {
         <Searchbar />
       </div>
       <div className="header__user">
-        <button className='btn_cart'></button>
-        <button className='btn_user'></button>
+        <button className='header__btn-cart'></button>
+        <button className='header__btn-user' onClick={() => setUserMenu(!userMenu)}></button>
       </div>
+      <menu className={`header__menu-user menu${userMenu ? ' menu_open' : ''}`}>
+        <ul className='menu__list'>
+          <li className='menu__item'>Iniciar sesión</li>
+          <li className='menu__item'>Registrarse</li>
+        </ul>
+      </menu>
     </header>
   )
 }

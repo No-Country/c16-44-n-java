@@ -1,6 +1,8 @@
 import { Kumbh_Sans } from "next/font/google";
 import "./globals.css";
 import Page from "@/components/Page/Page";
+import Header from "@/components/Header/Header";
+import { GlobalContextProvider } from "@/context/store";
 
 const kumbh = Kumbh_Sans({ subsets: ["latin"], weight: ["400", "700"] });
 
@@ -13,9 +15,12 @@ export default function RootLayout({ children }) {
   return (
     <html lang="es">
       <body className={kumbh.className}>
-        <Page>
-          {children}
-        </Page>
+        <GlobalContextProvider>
+          <Page>
+            <Header />
+            {children}
+          </Page>
+        </GlobalContextProvider>
       </body>
     </html>
   );

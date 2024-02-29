@@ -5,6 +5,7 @@
   align-items: center;
   justify-content: space-between;
   column-gap: 30px;
+  position: relative;
 }
 
 .header__wrapper {
@@ -53,7 +54,7 @@
   margin-inline-end: 50px;
 }
 
-.btn_cart, .btn_user {
+.header__btn-cart, .header__btn-user {
   width: 50px;
   height: 50px;
   border: 0;
@@ -62,10 +63,48 @@
   cursor: pointer;
 }
 
-.btn_cart {
+.header__btn-cart {
   background-image: url('../../../public/bitcoin-icons--cart-filled.svg');
 }
 
-.btn_user {
+.header__btn-user {
   background-image: url('../../../public/ph--user-fill.svg')
+}
+
+.header__menu-user {
+  position: absolute;
+  width: 170px;
+  background-color: #253857;
+  justify-self:center;
+  right: 0;
+  top: 80px;
+  z-index: 2;
+}
+
+.menu {
+  display: grid;
+  grid-template-rows: 0fr;
+  transition: grid-template-rows 250ms ease-out, padding 250ms ease-out;
+  gap: 20px;
+  justify-content: start;
+  padding: 0;
+}
+
+.menu_open {
+  grid-template-rows: 1fr;
+  padding: 15px 0;
+}
+
+.menu__list {
+  overflow: hidden;
+  display: grid;
+  gap: 20px;
+  grid-template-columns: auto;
+}
+
+.menu__item {
+  background-color: transparent;
+  border: none;
+  font-size: 18px;
+  margin-inline-start: 15px;
 }
