@@ -5,6 +5,7 @@ import Image from 'next/image';
 import Searchbar from '../Searchbar/Searchbar';
 import { useState } from 'react';
 import { useGlobalContext } from '@/context/store';
+import Link from 'next/link';
 
 export default function Header() {
   const [userMenu, setUserMenu] = useState(false);
@@ -18,10 +19,10 @@ export default function Header() {
   return (
     <header className='header'>
       <div className='header__wrapper'>
-        <div className='logo'>
+        <Link href={'/'} className='logo'>
           <Image className='logo__crown' src={crown} alt="crown" />
           <h1 className='logo__title'>Otaking</h1>
-        </div>
+        </Link>
         <button className='header__menu'>Catálogo&nbsp;
           <img className='header__arrow' src='/bxs--down-arrow.svg' alt='down-arrow' />
         </button>
