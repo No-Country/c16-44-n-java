@@ -22,6 +22,8 @@ public class Product {
     @NotNull
     private Double price;
     private int stock;
+    @Size(max = 150, message = "Description should be less than 150 characters")
+    private String description;
     @NotNull
     @Size(max = 30, message = "Brand should be less than 30 characters")
     private String brand;
@@ -31,4 +33,7 @@ public class Product {
     @ManyToOne
     @JoinColumn(name = "image_id")
     private Image image;
+    @ManyToOne
+    @JoinColumn(name = "user_id")
+    private User user;
 }

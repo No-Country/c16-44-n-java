@@ -6,6 +6,9 @@ import java.util.Map;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
@@ -55,19 +58,18 @@ public class ProductService implements IProductService{
         
     }
 
-    @Override
-    public List<Product> getAllProducts() {
-        return productRepository.findAll();
-    }
+
 
     @Override
     public Product saveProduct(ProductDTO productDTO) {
         Product product = new Product();
         product.setName(productDTO.getName());
+        product.setDescription(productDTO.getDescription());
         product.setImage(productDTO.getImage());
         product.setPrice(productDTO.getPrice());
         product.setStock(productDTO.getStock());
         product.setBrand(productDTO.getBrand());
+        product.setUser(productDTO.getUser());
 
         ProductCategory productCategory;
            if (productDTO.getCategory()!= null && productDTO.getCategory().getId() != null) {
@@ -78,7 +80,24 @@ public class ProductService implements IProductService{
             }
            product.setCategory(productCategory);
 
+
         return productRepository.save(product);
+    }
+
+    @Override
+    public Product updateProduct(ProductDTO productDTO, Long id) {
+        Product productToUpdate = productRepository.findById(id).orElseThrow(
+                () -> new IllegalArgumentException("Product with ID " + id + " not found."));
+        productToUpdate.setName(productDTO.getName());
+        productToUpdate.setPrice(productDTO.getPrice());
+        productToUpdate.setStock(productDTO.getStock());
+        productToUpdate.setDescription(productDTO.getDescription());
+        productToUpdate.setBrand(productDTO.getBrand());
+        productToUpdate.setImage(productDTO.getImage());
+        productToUpdate.setCategory(productDTO.getCategory());
+
+
+        return productRepository.save(productToUpdate);
     }
 
     @Override
@@ -90,23 +109,37 @@ public class ProductService implements IProductService{
     public Optional<Product> findProductById(Long product_id) {
         return productRepository.findById(product_id);
     }
-
     @Override
-    public List<Product> getProductsOrderedByPrice(){
-        return productRepository.findAllByOrderByPriceAsc();
-    }
-    @Override
-    public List<Product> getProductsOrderedByPriceASC() {
-       return productRepository.findAllByOrderByPriceDesc();
+    public Page<Product> getAllProducts(int page) {
+        int size = 9;
+        Pageable pageable = PageRequest.of(page, size);
+        return productRepository.findAll(pageable);
     }
 
     @Override
-    public List<Product> getAllProductsOrderedByNameAsc() {
-        return productRepository.findAllOrderedByNameAsc();
+    public Page<Product> getProductsOrderedByPrice(int page){
+        int size = 9;
+        Pageable pageable = PageRequest.of(page, size);
+        return productRepository.findAllByOrderByPriceAsc(pageable);
     }
     @Override
-    public List<Product> getAllProductsOrderedByNameDesc() {
-        return productRepository.findAllOrderedByNameDesc();
+    public Page<Product> getProductsOrderedByPriceASC(int page) {
+        int size = 9;
+        Pageable pageable = PageRequest.of(page, size);
+        return productRepository.findAllByOrderByPriceDesc(pageable);
+    }
+
+    @Override
+    public Page<Product> getAllProductsOrderedByNameAsc(int page) {
+        int size = 9;
+        Pageable pageable = PageRequest.of(page, size);
+        return productRepository.findAllOrderedByNameAsc(pageable);
+    }
+    @Override
+    public Page<Product> getAllProductsOrderedByNameDesc(int page) {
+        int size = 9;
+        Pageable pageable = PageRequest.of(page, size);
+        return productRepository.findAllOrderedByNameDesc(pageable);
     }
 
 
