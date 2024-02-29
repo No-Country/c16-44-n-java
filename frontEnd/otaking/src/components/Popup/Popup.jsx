@@ -2,7 +2,7 @@
 import './Popup.css'
 
 export default function Popup({children, isOpen}) {
-  return <div className={`popup${isOpen ? ' popup_open' : ''}`} inert={!isOpen} >
+  return <div className={`popup${isOpen ? ' popup_open' : ''}`} inert={isOpen ? undefined : 'true'} >
     {children}
   </div>
 }

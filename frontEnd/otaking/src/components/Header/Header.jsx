@@ -4,9 +4,16 @@ import crown from '../../../public/crown.svg';
 import Image from 'next/image';
 import Searchbar from '../Searchbar/Searchbar';
 import { useState } from 'react';
+import { useGlobalContext } from '@/context/store';
 
 export default function Header() {
   const [userMenu, setUserMenu] = useState(false);
+  const { openPopup } = useGlobalContext(); 
+
+  function handleMenuUserBtn(e) {
+    openPopup(e.target.dataset.popup);
+    setUserMenu(false);
+  }
 
   return (
     <header className='header'>
@@ -27,7 +34,7 @@ export default function Header() {
       <menu className={`header__menu-user menu${userMenu ? ' menu_open' : ''}`}>
         <ul className='menu__list'>
           <li className='menu__item'>Iniciar sesión</li>
-          <li className='menu__item'>Registrarse</li>
+          <li><button className='menu__item' data-popup='signUp' onClick={handleMenuUserBtn}>Registrarse</button></li>
         </ul>
       </menu>
     </header>

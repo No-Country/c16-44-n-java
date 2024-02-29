@@ -3,7 +3,7 @@
   position: fixed;
   inset: 0;
   display: grid;
-  grid-template-columns: 430px;
+  grid-template-columns: 400px;
   grid-template-rows: auto;
   place-content: center;
   background-color: rgba(0, 0, 0, .3);

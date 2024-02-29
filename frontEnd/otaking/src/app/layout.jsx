@@ -3,6 +3,7 @@ import "./globals.css";
 import Page from "@/components/Page/Page";
 import Header from "@/components/Header/Header";
 import { GlobalContextProvider } from "@/context/store";
+import SignIn from "@/components/Popup/SignUp/SignUp";
 
 const kumbh = Kumbh_Sans({ subsets: ["latin"], weight: ["400", "700"] });
 
@@ -20,6 +21,7 @@ export default function RootLayout({ children }) {
             <Header />
             {children}
           </Page>
+          <SignIn />
         </GlobalContextProvider>
       </body>
     </html>
