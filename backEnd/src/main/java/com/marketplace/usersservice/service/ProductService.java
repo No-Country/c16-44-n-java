@@ -6,6 +6,10 @@ import java.util.Map;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.dao.DataAccessException;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
@@ -53,21 +57,38 @@ public class ProductService implements IProductService{
         }
         ImageRepository.save(mainImage);
         
+        Product productSaved = productRepository.findById(productId).orElseThrow(() -> new DataAccessException("Publication not found") {
+        });
+
+        //Asignar imagenes a la publicacion
+        productSaved.setMainImage(mainImage);
+        productSaved.setImages(images);
+        productRepository.save(productSaved);
+    }
+    
+    @Transactional
+    public List<Product> findByCategory(String name){
+        List<Product> productsFound = productRepository.findByCategory(name);
+        return productsFound;
     }
 
-    @Override
-    public List<Product> getAllProducts() {
-        return productRepository.findAll();
+    @Transactional
+    public List<Product> findByText(String text){
+        List<Product> productsFound = productRepository.findByText(text);
+        return productsFound;
     }
+
+
 
     @Override
     public Product saveProduct(ProductDTO productDTO) {
         Product product = new Product();
         product.setName(productDTO.getName());
-        product.setImage(productDTO.getImage());
+        product.setDescription(productDTO.getDescription());
         product.setPrice(productDTO.getPrice());
         product.setStock(productDTO.getStock());
         product.setBrand(productDTO.getBrand());
+        product.setUser(productDTO.getUser());
 
         ProductCategory productCategory;
            if (productDTO.getCategory()!= null && productDTO.getCategory().getId() != null) {
@@ -76,9 +97,25 @@ public class ProductService implements IProductService{
             } else {
                 productCategory = ProductCategory.getDefaultProductCategory();
             }
-           product.setCategory(productCategory);
+           product.setProductCategory(productCategory);
+
 
         return productRepository.save(product);
+    }
+
+    @Override
+    public Product updateProduct(ProductDTO productDTO, Long id) {
+        Product productToUpdate = productRepository.findById(id).orElseThrow(
+                () -> new IllegalArgumentException("Product with ID " + id + " not found."));
+        productToUpdate.setName(productDTO.getName());
+        productToUpdate.setPrice(productDTO.getPrice());
+        productToUpdate.setStock(productDTO.getStock());
+        productToUpdate.setDescription(productDTO.getDescription());
+        productToUpdate.setBrand(productDTO.getBrand());
+        productToUpdate.setProductCategory(productDTO.getCategory());
+
+
+        return productRepository.save(productToUpdate);
     }
 
     @Override
@@ -90,23 +127,37 @@ public class ProductService implements IProductService{
     public Optional<Product> findProductById(Long product_id) {
         return productRepository.findById(product_id);
     }
-
     @Override
-    public List<Product> getProductsOrderedByPrice(){
-        return productRepository.findAllByOrderByPriceAsc();
-    }
-    @Override
-    public List<Product> getProductsOrderedByPriceASC() {
-       return productRepository.findAllByOrderByPriceDesc();
+    public Page<Product> getAllProducts(int page) {
+        int size = 9;
+        Pageable pageable = PageRequest.of(page, size);
+        return productRepository.findAll(pageable);
     }
 
     @Override
-    public List<Product> getAllProductsOrderedByNameAsc() {
-        return productRepository.findAllOrderedByNameAsc();
+    public Page<Product> getProductsOrderedByPrice(int page){
+        int size = 9;
+        Pageable pageable = PageRequest.of(page, size);
+        return productRepository.findAllByOrderByPriceAsc(pageable);
     }
     @Override
-    public List<Product> getAllProductsOrderedByNameDesc() {
-        return productRepository.findAllOrderedByNameDesc();
+    public Page<Product> getProductsOrderedByPriceASC(int page) {
+        int size = 9;
+        Pageable pageable = PageRequest.of(page, size);
+        return productRepository.findAllByOrderByPriceDesc(pageable);
+    }
+
+    @Override
+    public Page<Product> getAllProductsOrderedByNameAsc(int page) {
+        int size = 9;
+        Pageable pageable = PageRequest.of(page, size);
+        return productRepository.findAllOrderedByNameAsc(pageable);
+    }
+    @Override
+    public Page<Product> getAllProductsOrderedByNameDesc(int page) {
+        int size = 9;
+        Pageable pageable = PageRequest.of(page, size);
+        return productRepository.findAllOrderedByNameDesc(pageable);
     }
 
 

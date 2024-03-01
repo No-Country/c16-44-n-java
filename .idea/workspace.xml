@@ -46,7 +46,10 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
+<<<<<<< HEAD
     "JUnit.All in c16-44-n-java.executor": "Run",
+=======
+>>>>>>> 35697f27bb3b23e601b2695bbb0b6bf8aaaabd73
     "RequestMappingsPanelOrder0": "0",
     "RequestMappingsPanelOrder1": "1",
     "RequestMappingsPanelWidth0": "75",
@@ -55,9 +58,13 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "WebServerToolWindowFactoryState": "false",
     "extract.method.default.visibility": "private",
+<<<<<<< HEAD
     "git-widget-placeholder": "develop",
     "kotlin-language-version-configured": "true",
     "last_opened_file_path": "C:/NoCountry/c16-44-n-java/configserver-microservice",
+=======
+    "last_opened_file_path": "C:/NoCountry/c16-44-n-java/backEnd",
+>>>>>>> 35697f27bb3b23e601b2695bbb0b6bf8aaaabd73
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -222,7 +229,7 @@
       <workItem from="1708569387474" duration="53000" />
       <workItem from="1708618840659" duration="3759000" />
       <workItem from="1708636697886" duration="16242000" />
-      <workItem from="1708736440108" duration="3885000" />
+      <workItem from="1708736440108" duration="4601000" />
     </task>
     <task id="LOCAL-00001" summary="structure update">
       <created>1708313712401</created>

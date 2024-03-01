@@ -19,8 +19,20 @@ INSERT INTO product_category (name) VALUES ('Stikers');
 INSERT INTO product_category (name) VALUES ('Juegos');
 INSERT INTO product_category (name) VALUES ('Muñecos');
 
-INSERT INTO product (name, price, stock, brand, product_category_id, image_id) VALUES ('pikachu', 1000, 10, 'Pokemon', 1,"uno");
-INSERT INTO product (name, price, stock, brand, product_category_id, image_id) VALUES ('Volvasor', 2000, 10, 'Pokemon', 2, "dos");
-INSERT INTO product (name, price, stock, brand, product_category_id, image_id) VALUES ('Charizar', 3000, 10, 'Pokemon', 3, "tres");
+INSERT INTO product (name, price, stock, description, brand, product_category_id) VALUES ('pikachu', 1000, 10,'lorem ipsu', 'Pokemon', 1);
+INSERT INTO product (name, price, stock, description, brand, product_category_id) VALUES ('Volvasor', 2000, 10,'lorem ipsu', 'Pokemon', 2);
+INSERT INTO product (name, price, stock, description, brand, product_category_id) VALUES ('Charizar', 3000, 10,'lorem ipsu', 'Pokemon', 3);
+INSERT INTO product (name, price, stock, description, brand, product_category_id) VALUES ('pikachu', 1000, 10,'lorem ipsu', 'Pokemon', 1);
+INSERT INTO product (name, price, stock, description, brand, product_category_id) VALUES ('Volvasor', 2000, 10,'lorem ipsu', 'Pokemon', 2);
+INSERT INTO product (name, price, stock, description, brand, product_category_id) VALUES ('Charizar', 3000, 10,'lorem ipsu', 'Pokemon', 3);
+INSERT INTO product (name, price, stock, description, brand, product_category_id) VALUES ('pikachu', 1000, 10,'lorem ipsu', 'Pokemon', 1);
+INSERT INTO product (name, price, stock, description, brand, product_category_id) VALUES ('Volvasor', 2000, 10,'lorem ipsu', 'Pokemon', 2);
+INSERT INTO product (name, price, stock, description, brand, product_category_id) VALUES ('Charizar', 3000, 10,'lorem ipsu', 'Pokemon', 3);
+INSERT INTO product (name, price, stock, description, brand, product_category_id) VALUES ('pikachu', 1000, 10,'lorem ipsu', 'Pokemon', 1);
+INSERT INTO product (name, price, stock, description, brand, product_category_id) VALUES ('Volvasor', 2000, 10,'lorem ipsu', 'Pokemon', 2);
+INSERT INTO product (name, price, stock, description, brand, product_category_id) VALUES ('Charizar', 3000, 10,'lorem ipsu', 'Pokemon', 3);
+INSERT INTO product (name, price, stock, description, brand, product_category_id) VALUES ('pikachu', 1000, 10,'lorem ipsu', 'Pokemon', 1);
+INSERT INTO product (name, price, stock, description, brand, product_category_id) VALUES ('Volvasor', 2000, 10,'lorem ipsu', 'Pokemon', 2);
+INSERT INTO product (name, price, stock, description, brand, product_category_id) VALUES ('Charizar', 3000, 10,'lorem ipsu', 'Pokemon', 3);
 
 

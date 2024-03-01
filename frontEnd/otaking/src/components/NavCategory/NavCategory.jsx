@@ -3,10 +3,10 @@ import './NavCategory.css';
 
 export default function NavCategory() {
   const links = [
-    {name: 'Manga', href: '/category/manga'}, 
-    {name: 'Indumentaria', href: '/category/fabric'}, 
-    {name: 'Accesorios', href: '/category/accesories'}, 
-    {name: 'Figuras', href: '/category/figure'},
+    {name: 'Manga', href: 'manga'}, 
+    {name: 'Indumentaria', href: 'fabric'}, 
+    {name: 'Accesorios', href: 'accesories'}, 
+    {name: 'Figuras', href: 'figure'},
   ];
 
   return <article className="nav-category">
@@ -15,7 +15,7 @@ export default function NavCategory() {
       {
         links.map((link) => 
           <li className={`nav-category__item nav-category__item_name_${link.name.toLowerCase()}`} key={link.name}>
-            <Link href={link.href} className="nav-category__link">{link.name}</Link>
+            <Link href={`/search/${link.href}`} className="nav-category__link">{link.name}</Link>
           </li>
         )
       }
