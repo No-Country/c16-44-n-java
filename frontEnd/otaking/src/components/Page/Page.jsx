@@ -1,6 +1,7 @@
 "use client"
 import '@/components/Page/Page.css'
 
+
 export default function Page({
   children
 }) {
