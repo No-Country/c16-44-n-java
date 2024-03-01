@@ -8,5 +8,6 @@ export default function Home() {
     <GreetingBanner />
     <NavCategory />
     {Array(5).fill(<ProductCard />)}
+    
   </main>
 }
