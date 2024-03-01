@@ -1,0 +1,42 @@
+.product_card {
+    display: flex;
+    flex-direction: column;
+    width: 300px;
+    height: 400px;
+    background-color: #FCF5EB;
+    border-radius: 10px;
+    border: 2px solid #FD710F;
+    overflow: hidden;
+}
+
+.product_card .top_card {
+    width: 300px;
+    height: 250px;
+    background-color: gray;
+}
+
+.product_img{
+    object-fit: cover;
+    width: 300px;
+    height: 250px;
+}
+.bottom_card {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    margin: 3%;
+    height: 150px;
+}
+
+.product_name {
+    color: black;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.product_price {
+    color: red;
+    font-size: 14px;
+    font-weight: 600;
+    align-self: flex-end;
+}

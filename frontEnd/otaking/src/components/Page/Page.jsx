@@ -2,6 +2,7 @@
 import '@/components/Page/Page.css'
 import Header from '../Header/Header'
 
+
 export default function Page({
   children
 }) {
