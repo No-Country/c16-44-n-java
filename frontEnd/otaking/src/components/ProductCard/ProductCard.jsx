@@ -3,17 +3,15 @@ import '@/components/ProductCard/ProductCard.css'
 
 const ProductCard = () => {
     return (
-        <div className='container_product_card'>
-            <div className='product_card'>
-                <div className='top_card'>
-                    {/* img */}
-                    <img src='/images/figures.jpg' className='product_img'></img>
-                </div>
-                <div className="bottom_card">
-                    {/* name, price */}
-                    <span className='product_name'>Figura Dupla</span>
-                    <span className='product_price'>$15,000</span>
-                </div>
+        <div className='product-card'>
+            <div className='product-card__top'>
+                {/* img */}
+                <img src='/images/figures.jpg' className='product-card__img'></img>
+            </div>
+            <div className="product-card__bottom">
+                {/* name, price */}
+                <p className='product-card__name'>Figura Dupla</p>
+                <p className='product-card__price'>$15,000</p>
             </div>
         </div>
     )
