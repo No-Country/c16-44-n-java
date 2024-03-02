@@ -15,7 +15,7 @@ export default function useForm(formName) {
         input[aName].value = target.value;
         input[aName].validationMessage = target.validationMessage
 
-        return JSON.parse(JSON.stringify(input))
+        return structuredClone(input)
       })
     }, []),
 
@@ -31,7 +31,7 @@ export default function useForm(formName) {
     const formInputs = Object.fromEntries(
       Array
         .from(document.forms[formName].elements)
-        .filter(({ nodeName }) => nodeName === 'INPUT')
+        .filter(({ nodeName }) => nodeName === 'INPUT' || nodeName === 'TEXTAREA' || nodeName === 'SELECT')
         .map(({ name, value }) => [name, {value, hasMssg: false}])
     )
 

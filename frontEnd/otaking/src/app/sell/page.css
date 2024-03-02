@@ -1,0 +1,36 @@
+.sell {
+  padding: 30px 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+.sell-form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  align-items: center;
+}
+
+.sell-form > * {
+  width: 50%;
+}
+
+.sell-form__menu {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.sell-form__btn {
+  padding: 10px;
+  font-size: 18px;
+}
+
+.sell-form__item {
+  font-size: 18px;
+  padding-inline-start: 5px;
+}
+
+.sell-form__title {
+  font-size: 24px;
+}

@@ -13,7 +13,6 @@ export default function Header() {
 
   function handleMenuUserBtn(e) {
     openPopup(e.target.dataset.popup);
-    setUserMenu(false);
   }
 
   return (
@@ -33,9 +32,10 @@ export default function Header() {
         <button className='header__btn-user' onClick={() => setUserMenu(!userMenu)}></button>
       </div>
       <menu className={`header__menu-user menu${userMenu ? ' menu_open' : ''}`}>
-        <ul className='menu__list'>
+        <ul className='menu__list' onClick={() => setUserMenu(false)}>
           <li ><button className='menu__item' data-popup='signIn' onClick={handleMenuUserBtn}>Iniciar sesión</button></li>
           <li><button className='menu__item' data-popup='signUp' onClick={handleMenuUserBtn}>Registrarse</button></li>
+          <li><Link href='/sell' className='menu__item' >Vender</Link></li>
         </ul>
       </menu>
     </header>
