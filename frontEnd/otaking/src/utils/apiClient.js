@@ -14,3 +14,11 @@ export const postUser = (form) => {
     body: JSON.stringify(form)
   })
 }
+
+export const postItem = (form) => {
+  return fetch('/api/item', {
+    method: 'POST',
+    headers,
+    body: JSON.stringify(form),
+  })
+}
