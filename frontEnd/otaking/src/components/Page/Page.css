@@ -10,3 +10,9 @@
   row-gap: 40px;
   align-items: center;
 }
+
+.products__grid{
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 50px;
+}
