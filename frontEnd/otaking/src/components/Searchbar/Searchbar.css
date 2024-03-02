@@ -1,9 +1,9 @@
-.search {
+.search-form {
   display: flex;
   flex-grow: 2;
 }
 
-.search__bar {
+.search-form__bar {
   border: 0;
   background-color: #fff;
   color: black;
@@ -13,7 +13,7 @@
   border-radius: 7px 0 0 7px;
 }
 
-.search__btn {
+.search-form__btn {
   background-color: #fff;
   border: 0;
   width: 50px;
@@ -23,7 +23,7 @@
   cursor: pointer;
 }
 
-.search__btn::after {
+.search-form__btn::after {
   background-image: url('../../../public/mdi-light--magnify.svg');
   background-size: 60%;
   background-repeat: no-repeat;

@@ -15,7 +15,7 @@ export default function NavCategory() {
       {
         links.map((link) => 
           <li className={`nav-category__item nav-category__item_name_${link.name.toLowerCase()}`} key={link.name}>
-            <Link href={`/category/${link.href}`} className="nav-category__link">{link.name}</Link>
+            <Link href={`/search/${link.href}`} className="nav-category__link">{link.name}</Link>
           </li>
         )
       }

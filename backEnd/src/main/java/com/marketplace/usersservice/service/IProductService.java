@@ -21,4 +21,6 @@ public interface IProductService {
     Page<Product> getAllProductsOrderedByNameAsc(int page);
     Page<Product> getAllProductsOrderedByNameDesc(int page);
     void saveImages(MultipartFile mainFile, List<MultipartFile> files, Long productId);
+    List<Product> findByCategory(String name);
+    List<Product> findByText(String text);
 }

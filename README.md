@@ -12,11 +12,13 @@
 
 ## Team
 
+## Database
+![base de datos, modelo entidad-relacion](/erm.jpg)
 ### Back-end
 
-| Lautaro Gonzalez | Gonzalo Villegas | Miguel Angel Alvarez Montoya |
-|------------------|------------------|------------------|
-| Linkedin Github | Linkedin Github | Linkedin Github |
+| Gonzalo Villegas | Miguel Angel Alvarez Montoya |
+|------------------|------------------|
+| Linkedin Github | Linkedin Github |
 
 
 ### Front-end and UX/UI

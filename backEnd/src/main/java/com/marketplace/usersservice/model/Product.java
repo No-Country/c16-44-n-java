@@ -1,5 +1,7 @@
 package com.marketplace.usersservice.model;
 
+import java.util.List;
+
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
@@ -29,11 +31,13 @@ public class Product {
     private String brand;
     @ManyToOne
     @JoinColumn(name = "product_category_id")
-    private ProductCategory Category;
-    @ManyToOne
-    @JoinColumn(name = "image_id")
-    private Image image;
+    private ProductCategory productCategory;
+    @OneToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+    private Image mainImage;
+    @OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+    private List<Image> images;
     @ManyToOne
     @JoinColumn(name = "user_id")
     private User user;
+    
 }

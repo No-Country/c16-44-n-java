@@ -8,16 +8,16 @@ export default function Searchbar() {
     setInput(e.target.value.toLowerCase())
   }
 
-  return <form className="search">
+  return <form className="search-form">
     <input 
-      className="search__bar"
-      type="text" 
+      className="search-form__bar"
+      type="search" 
       onChange={onChange} 
       placeholder="Búsqueda" 
       required
       minLength={1}
       value={input}
     />
-    <button className="search__btn" type="submit"/>
+    <button className="search-form__btn" type="submit"/>
   </form>
 }

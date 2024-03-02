@@ -6,6 +6,7 @@ import java.util.Map;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.dao.DataAccessException;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
@@ -56,6 +57,25 @@ public class ProductService implements IProductService{
         }
         ImageRepository.save(mainImage);
         
+        Product productSaved = productRepository.findById(productId).orElseThrow(() -> new DataAccessException("Publication not found") {
+        });
+
+        //Asignar imagenes a la publicacion
+        productSaved.setMainImage(mainImage);
+        productSaved.setImages(images);
+        productRepository.save(productSaved);
+    }
+    
+    @Transactional
+    public List<Product> findByCategory(String name){
+        List<Product> productsFound = productRepository.findByCategory(name);
+        return productsFound;
+    }
+
+    @Transactional
+    public List<Product> findByText(String text){
+        List<Product> productsFound = productRepository.findByText(text);
+        return productsFound;
     }
 
 
@@ -65,7 +85,6 @@ public class ProductService implements IProductService{
         Product product = new Product();
         product.setName(productDTO.getName());
         product.setDescription(productDTO.getDescription());
-        product.setImage(productDTO.getImage());
         product.setPrice(productDTO.getPrice());
         product.setStock(productDTO.getStock());
         product.setBrand(productDTO.getBrand());
@@ -78,7 +97,7 @@ public class ProductService implements IProductService{
             } else {
                 productCategory = ProductCategory.getDefaultProductCategory();
             }
-           product.setCategory(productCategory);
+           product.setProductCategory(productCategory);
 
 
         return productRepository.save(product);
@@ -93,8 +112,7 @@ public class ProductService implements IProductService{
         productToUpdate.setStock(productDTO.getStock());
         productToUpdate.setDescription(productDTO.getDescription());
         productToUpdate.setBrand(productDTO.getBrand());
-        productToUpdate.setImage(productDTO.getImage());
-        productToUpdate.setCategory(productDTO.getCategory());
+        productToUpdate.setProductCategory(productDTO.getCategory());
 
 
         return productRepository.save(productToUpdate);

@@ -4,7 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="caf1d6fe-abb6-479d-8081-c33fd69a72e3" name="Changes" comment="structure update" />
+    <list default="true" id="caf1d6fe-abb6-479d-8081-c33fd69a72e3" name="Changes" comment="structure update">
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backEnd/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/backEnd/src/main/resources/application.properties" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -29,13 +33,9 @@
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
-  <component name="MavenImportPreferences">
-    <option name="generalSettings">
-      <MavenGeneralSettings>
-        <option name="useMavenConfig" value="true" />
-      </MavenGeneralSettings>
-    </option>
-  </component>
+  <component name="ProjectColorInfo"><![CDATA[{
+  "associatedIndex": 1
+}]]></component>
   <component name="ProjectId" id="2cUk5PS2ht2hBkI0GO2VBWw4A8b" />
   <component name="ProjectLevelVcsManager">
     <ConfirmationsSetting value="1" id="Add" />
@@ -46,6 +46,10 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
+<<<<<<< HEAD
+    "JUnit.All in c16-44-n-java.executor": "Run",
+=======
+>>>>>>> 35697f27bb3b23e601b2695bbb0b6bf8aaaabd73
     "RequestMappingsPanelOrder0": "0",
     "RequestMappingsPanelOrder1": "1",
     "RequestMappingsPanelWidth0": "75",
@@ -54,7 +58,13 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "WebServerToolWindowFactoryState": "false",
     "extract.method.default.visibility": "private",
+<<<<<<< HEAD
+    "git-widget-placeholder": "develop",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "C:/NoCountry/c16-44-n-java/configserver-microservice",
+=======
     "last_opened_file_path": "C:/NoCountry/c16-44-n-java/backEnd",
+>>>>>>> 35697f27bb3b23e601b2695bbb0b6bf8aaaabd73
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -95,7 +105,7 @@
       </set>
     </option>
   </component>
-  <component name="RunManager" selected="Spring Boot.GatewayServiceApplication">
+  <component name="RunManager" selected="JUnit.All in c16-44-n-java">
     <configuration type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
       <module name="eureka-server" />
       <option name="SPRING_BOOT_MAIN_CLASS" value="com.marketplace.eurekaserver.EurekaServerApplication" />
@@ -103,9 +113,11 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="All in marketplace-NoCountry" type="JUnit" factoryName="JUnit" nameIsGenerated="true">
-      <module name="marketplace-NoCountry" />
+    <configuration name="All in c16-44-n-java" type="JUnit" factoryName="JUnit" nameIsGenerated="true">
+      <module name="c16-44-n-java" />
       <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="" />
+      <option name="METHOD_NAME" value="" />
       <option name="TEST_OBJECT" value="package" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -182,23 +194,21 @@
       </method>
     </configuration>
     <list>
-      <item itemvalue="JUnit.All in marketplace-NoCountry" />
+      <item itemvalue="JUnit.All in c16-44-n-java" />
       <item itemvalue="JUnit.All in users-service" />
-      <item itemvalue="Spring Boot.ProductsServiceApplication" />
-      <item itemvalue="Spring Boot.ConfigserverMicroserviceApplication" />
-      <item itemvalue="Spring Boot.EurekaServerApplication" />
-      <item itemvalue="Spring Boot.GatewayServiceApplication" />
-      <item itemvalue="Spring Boot.SalesServiceApplication" />
-      <item itemvalue="Spring Boot.ShoppingcartsServiceApplication" />
-      <item itemvalue="Spring Boot.UsersServiceApplication" />
-      <item itemvalue="Spring Boot.AdministratorServiceApplication" />
     </list>
     <recent_temporary>
       <list>
         <item itemvalue="JUnit.All in users-service" />
-        <item itemvalue="Spring Boot.AdministratorServiceApplication" />
       </list>
     </recent_temporary>
+  </component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="jdk-17.0.9-corretto-17.0.9-8336523bb0d9-93b19daf" />
+      </set>
+    </attachedChunks>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
