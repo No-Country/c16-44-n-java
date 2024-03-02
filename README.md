@@ -13,7 +13,7 @@
 ## Team
 
 ## Database
-
+![base de datos, modelo entidad-relacion](/erm.jpg)
 ### Back-end
 
 | Gonzalo Villegas | Miguel Angel Alvarez Montoya |
