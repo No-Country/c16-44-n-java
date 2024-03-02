@@ -39,5 +39,8 @@ public class Product {
     @ManyToOne
     @JoinColumn(name = "user_id")
     private User user;
-    
+ 
+    public Product(Long id){
+        this.id = id;
+    }
 }

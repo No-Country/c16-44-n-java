@@ -17,6 +17,7 @@ import com.marketplace.usersservice.service.IProductService;
 
 @RestController
 @RequestMapping ("/v1/product")
+@CrossOrigin(origins = "*")
 public class ProductController {
     
     @Autowired

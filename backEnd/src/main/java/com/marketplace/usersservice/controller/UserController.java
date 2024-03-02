@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/v1/user")
+@CrossOrigin(origins = "*")
 public class UserController {
     
     @Autowired
@@ -27,6 +28,11 @@ public class UserController {
         } catch (Exception ex) {
             throw new IllegalArgumentException("Error creating user: " + ex.getMessage());
         }
+    }
+
+    @PostMapping("/login")
+    public User login(@RequestBody UserLoginDTO userLoginDTO) {
+        return userService.login(userLoginDTO);
     }
 
     @PutMapping("/update/{id}")
