@@ -1,4 +1,3 @@
-
 'use client'
 import { useGlobalContext } from "@/context/store";
 import PopupWithForm from "../PopupWithForm/PopupWithForm";
