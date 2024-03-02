@@ -3,11 +3,16 @@ import { useGlobalContext } from '@/context/store'
 import Popup from '../Popup'
 import './PopupWithForm.css'
 
-export default function PopupWithForm({isOpen, children, title}) {
+export default function PopupWithForm({isOpen, children, title, onSubmit}) {
   const { closeAllPopups } = useGlobalContext()
 
+  function handleSubmit(e) {
+    e.preventDefault()
+    onSubmit()
+  }
+
   return <Popup isOpen={isOpen}>
-    <form className={`form`} noValidate>
+    <form className={`form`} noValidate name={title} onSubmit={handleSubmit} >
       <h3 className="form__title">{title}</h3>
       <fieldset className='form__field'>
         {children}
