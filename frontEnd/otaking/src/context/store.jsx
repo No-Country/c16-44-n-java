@@ -1,15 +1,17 @@
 'use client';
-import { createContext, useContext, useState } from "react";
+import { createContext, useContext, useEffect, useState } from "react";
 import usePopup from '../hooks/usePopup.js';
 
 const GlobalContext = createContext({})
 
 export const GlobalContextProvider = ({children}) => {
   const [popups, openPopup, closeAllPopups] = usePopup('signIn', 'signUp');
-  const [user, setUser] = useState(()=> {
+  const [user, setUser] = useState(null)
+
+  useEffect(() => {
     const user = localStorage.getItem('user')
-    return user ? JSON.parse(user) : null
-  })
+    setUser(() => user ? JSON.parse(user) : null)
+  }, [])
 
   return <GlobalContext.Provider value={{
     popups, 

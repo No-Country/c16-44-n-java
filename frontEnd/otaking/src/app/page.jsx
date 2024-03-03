@@ -1,33 +1,20 @@
-'use client'
+
 import GreetingBanner from "@/components/GreetingBanner/GreetingBanner";
 import NavCategory from "@/components/NavCategory/NavCategory";
 import { Showcase } from "@/components/Showcase/Showcase";
 import { getCategory } from "@/utils/apiClient";
-import { useEffect, useState } from "react";
 
-export default function Home() {
-  const [glasses, setGlasses] = useState([]);
-  const [affiches, setAffiches] = useState([]);
-  const [stickers, setStickers] = useState([]);
-  const [games, setGames] = useState([]);
-  const [figures, setFigures] = useState([])
+export default async function Home() {
+  const categories = ['vasos', 'afiches', 'stickers', 'juegos', 'muñecos']
+    .map(category => getCategory(category))
 
-  useEffect(() => {
-    getCategory('vasos')
-      .then(setGlasses)
-
-    getCategory('afiches')
-      .then(setAffiches)
-
-    getCategory('stickers')
-      .then(setStickers)
-
-    getCategory('juegos')
-      .then(setGames)
-
-    getCategory('muñecos')
-      .then(setFigures)
-  }, [])
+  const [
+    glasses,
+    affiches,
+    stickers,
+    games,
+    figures,
+  ] = await Promise.all(categories)
 
   return <main className="main">
     <GreetingBanner />
