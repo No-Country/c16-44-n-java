@@ -1,9 +1,11 @@
 package com.marketplace.usersservice.controller;
 
+import com.marketplace.usersservice.dto.AddProductDTO;
+import com.marketplace.usersservice.dto.DeleteProductCartDTO;
+import com.marketplace.usersservice.model.ProductCart;
 import com.marketplace.usersservice.model.ShoppingCart;
 import com.marketplace.usersservice.model.User;
 import com.marketplace.usersservice.service.IShoppingCartService;
-import com.marketplace.usersservice.service.ShoppingCartService;
 import com.marketplace.usersservice.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -11,10 +13,11 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
-import java.util.Optional;
+
 
 @RestController
 @RequestMapping("/v1/shoppingcarts")
+@CrossOrigin(origins = "*")
 public class ShoppingCartController {
 
     @Autowired
@@ -22,20 +25,18 @@ public class ShoppingCartController {
     @Autowired
     private UserService userService;
 
-
-
     @GetMapping
     public ResponseEntity<List<ShoppingCart>> getAllShoppingCarts() {
         List<ShoppingCart> shoppingCarts = shoppingCartService.findAll();
         return ResponseEntity.ok().body(shoppingCarts);
     }
 
-    @GetMapping("/{id}")
-    public ResponseEntity<ShoppingCart> getShoppingCartById(@PathVariable Long id) {
-        Optional<ShoppingCart> shoppingCart = shoppingCartService.findById(id);
-        return shoppingCart.map(cart -> ResponseEntity.ok().body(cart))
-                .orElseGet(() -> ResponseEntity.notFound().build());
-    }
+    // @GetMapping("/{id}")
+    // public ResponseEntity<ShoppingCart> getShoppingCartById(@PathVariable Long id) {
+    //     Optional<ShoppingCart> shoppingCart = shoppingCartService.findById(id);
+    //     return shoppingCart.map(cart -> ResponseEntity.ok().body(cart))
+    //             .orElseGet(() -> ResponseEntity.notFound().build());
+    // }
 
     @PostMapping
     public ResponseEntity<ShoppingCart> createShoppingCart(@RequestBody ShoppingCart shoppingCart) {
@@ -43,23 +44,25 @@ public class ShoppingCartController {
         return ResponseEntity.status(HttpStatus.CREATED).body(createdCart);
     }
 
-    @GetMapping("/user/{userId}")
-    public ResponseEntity<List<ShoppingCart>> getShoppingCartsByUserId(@PathVariable Long userId) {
+    //Yo digo que esto sí------------------------------------------------------------
 
-        Optional<User> userOptional = Optional.ofNullable(userService.findById(userId));
+    //Que nos envien que se quiere incluir al carrito de ese usuario
+    @PostMapping("/add")
+    public ResponseEntity<ShoppingCart> updateShoppingCart(@RequestBody AddProductDTO addProductDTO) {
+        ShoppingCart updatedCart = shoppingCartService.addProductCart(addProductDTO);
+        return ResponseEntity.ok().body(updatedCart);
+    }
 
+    //Que nos envien el id del productCart que se quiere eliminar
+    @DeleteMapping("/deleteProduct")
+    public ResponseEntity<ShoppingCart> deleteProductFromShoppingCart(@RequestBody DeleteProductCartDTO deleteProductDTO) {
+        ShoppingCart updatedCart = shoppingCartService.deleteProduct(deleteProductDTO);
+        return ResponseEntity.ok().body(updatedCart);
+    }
 
-        if (!userOptional.isPresent()) {
-            return ResponseEntity.notFound().build();
-        }
-
-        // Obtener el usuario de la opción (ya que el usuario es un optional)
-        User user = userOptional.get();
-
-        // Llamar al servicio de carrito de compras para encontrar los carritos asociados al usuario
-        List<ShoppingCart> shoppingCarts = shoppingCartService.findByUserId(user);
-
-        // Devolver la respuesta con los carritos de compras asociados al usuario
-        return ResponseEntity.ok().body(shoppingCarts);
+    @GetMapping("/{userId}")
+    public ResponseEntity<ShoppingCart> getShoppingCartById(@PathVariable Long userId) {
+        ShoppingCart shoppingCart = shoppingCartService.findById(userId);
+        return ResponseEntity.ok().body(shoppingCart);
     }
 }

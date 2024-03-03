@@ -43,5 +43,8 @@
     @ManyToOne()
     @JoinColumn(name = "user_type_id")
     private UserType userType;
-
+    
+    public User(Long id){
+        this.id = id;
+    }
 }

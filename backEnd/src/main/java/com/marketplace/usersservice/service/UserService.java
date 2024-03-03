@@ -38,6 +38,7 @@ public class UserService implements IUserService {
         return userRepository.findById(id).orElseThrow(
                 () -> new IllegalArgumentException("User with ID " + id + " no found."));
     }
+
     @Override
     public User save(UserDTO userDTO) {
         User user = new User();
@@ -60,6 +61,18 @@ public class UserService implements IUserService {
         return userRepository.save(user);
 
     }
+
+    @Override
+    public User login(UserLoginDTO userLoginDTO) {
+        User user = userRepository.findByEmail(userLoginDTO.getEmail()).orElseThrow(
+                () -> new IllegalArgumentException("User with email " + userLoginDTO.getEmail() + " not found."));
+        if (user.getPassword().equals(userLoginDTO.getPassword())) {
+            return user;
+        } else {
+            throw new IllegalArgumentException("Password incorrect.");
+        }
+    }
+
     @Override
     public User update(UserDTO userDTO, Long id) {
         User user = userRepository.findById(id).orElseThrow(

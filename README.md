@@ -10,11 +10,17 @@
 
 ## Tecnologies
 
-## Team
+## User Stories
+[Impact map en Figjam](https://www.figma.com/file/MMtkP1f7Bi95drftBHJ2PP/c16-44-n-java-impact-map?type=whiteboard&node-id=0%3A1&t=zOXWBRLqi4Hvo8gZ-1)
 
 ## Database
 ![base de datos, modelo entidad-relacion](/erm.jpg)
+
+
+## Team
+
 ### Back-end
+
 
 | Gonzalo Villegas | Miguel Angel Alvarez Montoya |
 |------------------|------------------|

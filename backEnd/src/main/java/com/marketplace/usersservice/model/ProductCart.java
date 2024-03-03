@@ -16,10 +16,13 @@ public class ProductCart {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private int quantity;
-    private Double price;
+    //private Double price;
     private Double total;
-    @ManyToOne
+    @OneToOne
     @JoinColumn(name = "product_id")
     private Product product;
 
+    public ProductCart(Long id){
+        this.id = id;
+    }
 }

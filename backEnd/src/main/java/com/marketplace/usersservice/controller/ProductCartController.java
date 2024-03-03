@@ -9,11 +9,11 @@ import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/v1/product-cart")
+@CrossOrigin(origins = "*")
 public class ProductCartController {
 
     @Autowired
     private ProductCartRepository productCartRepository;
-
 
 
     @PostMapping("/save")

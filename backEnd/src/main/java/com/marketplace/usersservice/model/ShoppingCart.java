@@ -20,10 +20,9 @@ public class ShoppingCart {
     private Long id;
     private Date date;
     private Double total;
-    @ManyToOne
+    @OneToOne
     @JoinColumn(name = "user_id")
     private User user;
-    @OneToMany
-    @JoinColumn(name = "product_cart_id")
+    @OneToMany(cascade = CascadeType.ALL)
     private List<ProductCart> productCart;
 }
