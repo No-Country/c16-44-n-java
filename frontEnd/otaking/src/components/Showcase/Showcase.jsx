@@ -1,3 +1,4 @@
+"use client"
 import React from 'react';
 import '@/components/Showcase/Showcase.css';
 import ProductCard from "@/components/ProductCard/ProductCard";
