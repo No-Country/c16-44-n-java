@@ -9,7 +9,7 @@ import Link from 'next/link';
 
 export default function Header() {
   const [userMenu, setUserMenu] = useState(false);
-  const { openPopup } = useGlobalContext(); 
+  const { openPopup, user, setUser } = useGlobalContext(); 
 
   function handleMenuUserBtn(e) {
     openPopup(e.target.dataset.popup);
@@ -29,13 +29,23 @@ export default function Header() {
       </div>
       <div className="header__user">
         <button className='header__btn-cart'></button>
-        <button className='header__btn-user' onClick={() => setUserMenu(!userMenu)}></button>
+        {user ? 
+          <button className='header__btn-perfil' onClick={() => setUserMenu(!userMenu)}>¡Hola {user.name}!</button> :
+          <button className='header__btn-user' onClick={() => setUserMenu(!userMenu)}></button>
+        }
       </div>
       <menu className={`header__menu-user menu${userMenu ? ' menu_open' : ''}`}>
         <ul className='menu__list' onClick={() => setUserMenu(false)}>
-          <li ><button className='menu__item' data-popup='signIn' onClick={handleMenuUserBtn}>Iniciar sesión</button></li>
-          <li><button className='menu__item' data-popup='signUp' onClick={handleMenuUserBtn}>Registrarse</button></li>
-          <li><Link href='/sell' className='menu__item' >Vender</Link></li>
+          {user ?
+            <>
+              <li><Link href='/sell' className='menu__item' >Vender</Link></li>
+              <li><button className='menu__item' onClick={() => setUser(() => (localStorage.clear(), null))}>Salir</button></li>
+            </> :
+            <>
+              <li><button className='menu__item' data-popup='signIn' onClick={handleMenuUserBtn}>Iniciar sesión</button></li>
+              <li><button className='menu__item' data-popup='signUp' onClick={handleMenuUserBtn}>Registrarse</button></li>
+            </>
+          }
         </ul>
       </menu>
     </header>

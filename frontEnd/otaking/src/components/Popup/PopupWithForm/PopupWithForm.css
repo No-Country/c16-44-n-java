@@ -35,6 +35,11 @@
   width: 150px;
   height: 45px;
   border-radius: 12px;
+  transition: opacity 100ms linear;
+}
+
+.form__btn:hover {
+  opacity: .8;
 }
 
 .form__item {
