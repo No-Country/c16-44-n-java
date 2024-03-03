@@ -4,7 +4,7 @@ import { Showcase } from "@/components/Showcase/Showcase";
 import { getCategory } from "@/utils/apiClient";
 
 export default async function Home() {
-  const categories = ['vasos', 'afiches', 'stickers', 'juegos', 'muñecos']
+  const categories = ['vasos', 'afiches', 'stikers', 'juegos']
     .map(category => getCategory(category))
 
   const [
@@ -12,7 +12,6 @@ export default async function Home() {
     affiches,
     stickers,
     games,
-    figures,
   ] = await Promise.all(categories)
 
   return <main className="main">
@@ -22,6 +21,5 @@ export default async function Home() {
     <Showcase name_category={'Afiches'} items={affiches} />
     <Showcase name_category={'Stickers'} items={stickers} />
     <Showcase name_category={'Juegos'} items={games} />
-    <Showcase name_category={'Muñecos'} items={figures} />
   </main>
 }
