@@ -6,7 +6,7 @@ import { login } from "@/utils/apiClient";
 
 export default function SignIn() {
   const {setUser} = useGlobalContext()
-  const { popups: {signIn}} = useGlobalContext();
+  const { popups: {signIn}, closeAllPopups} = useGlobalContext();
   const {inputs: {
     email,
     password,
@@ -16,7 +16,7 @@ export default function SignIn() {
   } = useForm('Iniciar sesión');
 
   function handleSubmit() {
-    login(getValues()).then(setUser)
+    login(getValues()).then(setUser).then(closeAllPopups)
   }
 
   return <PopupWithForm isOpen={signIn} title={'Iniciar sesión'} onSubmit={handleSubmit}>

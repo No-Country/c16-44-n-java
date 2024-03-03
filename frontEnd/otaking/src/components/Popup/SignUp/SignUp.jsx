@@ -6,7 +6,7 @@ import { postUser } from '@/utils/apiClient';
 
 export default function SignUp() {
   const title = 'Registrarse'
-  const { popups: {signUp}} = useGlobalContext();
+  const { popups: {signUp}, closeAllPopups} = useGlobalContext();
   const {inputs: {
       name,
       lastName,
@@ -25,7 +25,7 @@ export default function SignUp() {
     
     const format = {...values, userType: {id: +values.userType, userType: values.rol}}
 
-    postUser(format)
+    postUser(format).then(closeAllPopups)
   }
 
   return <PopupWithForm isOpen={signUp} title={title} onSubmit={handleSubmit} >

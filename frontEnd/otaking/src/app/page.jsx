@@ -1,4 +1,3 @@
-
 import GreetingBanner from "@/components/GreetingBanner/GreetingBanner";
 import NavCategory from "@/components/NavCategory/NavCategory";
 import { Showcase } from "@/components/Showcase/Showcase";
