@@ -1,7 +1,9 @@
 import {headers, confirm} from './api.js'
 
-const BASE_URL = 'http://localhost:8080/v1/user'
-const setOptPost = (form) => ({
+const user = 'http://localhost:8080/v1/user'
+const product = 'http://localhost:8080/v1/product'
+
+const setPostOpt = (form) => ({
   method: 'POST',
   headers,
   body: JSON.stringify(form)
@@ -10,22 +12,26 @@ const setOptPost = (form) => ({
 export const getAllUsers = () => {
   return fetch('/api', {headers})
     .then(confirm)
-    .then(console.log)
 }
 
 export const postUser = (form) => {
-  return fetch('/api', setOptPost(form))
+  return fetch('/api', setPostOpt(form))
 }
 
 export const postItem = (form) => {
-  return fetch('/api/item', setOptPost(form))
+  return fetch('/api/item', setPostOpt(form))
 }
 
 export const login = (form) => {
-  return fetch(BASE_URL + '/login', setOptPost(form))
+  return fetch(user + '/login', setPostOpt(form))
     .then(confirm)
     .then(res => {
       localStorage.setItem('user', JSON.stringify(res))
       return res
     })
+}
+
+export const getCategory = (category) => {
+  return fetch(product + '/category/' + category, {headers})
+    .then(confirm)
 }
