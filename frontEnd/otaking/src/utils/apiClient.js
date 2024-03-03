@@ -7,7 +7,6 @@ export const getAllUsers = () => {
 }
 
 export const postUser = (form) => {
-  form = {...form, userType: { userType: form.userType}}
   return fetch('/api', {
     method: 'POST',
     headers,

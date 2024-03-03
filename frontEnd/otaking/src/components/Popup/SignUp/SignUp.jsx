@@ -21,15 +21,19 @@ export default function SignUp() {
 
   function handleSubmit() {
     const values = getValues()
-    if(values.password === values.confirmPass) postUser(values)
+    if(values.password !== values.confirmPass) return
+    
+    const format = {...values, userType: {id: +values.userType, userType: values.rol}}
+
+    postUser(format)
   }
 
   return <PopupWithForm isOpen={signUp} title={title} onSubmit={handleSubmit} >
     <input onChange={handleChange} value={name?.value ?? ''} className='form__item' type='text' name='name' placeholder='Nombre' required />
     <input onChange={handleChange} value={lastName?.value ?? ''} className='form__item' type='text' name='lastName' placeholder='Apellido' required />
     <div style={{display: 'flex', justifyContent: 'space-evenly'}}>
-      <label >Comprador <input value='USER' name='userType' type='radio'/></label>
-      <label >Vendedor <input value='SELLER' name='userType' type='radio' /></label>
+      <label >Comprador <input value='1' name='userType' type='radio'/></label>
+      <label >Vendedor <input value='3' name='userType' type='radio' /></label>
     </div>
     <input onChange={handleChange} value={email?.value ?? ''} className='form__item' type='email' name='email' placeholder='Correo' required />
     <input onChange={handleChange} value={address?.value ?? ''} className='form__item' type='text' name='address' placeholder='Dirección' required />
