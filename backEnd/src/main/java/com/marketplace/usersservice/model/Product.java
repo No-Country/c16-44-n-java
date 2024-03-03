@@ -35,6 +35,7 @@ public class Product {
     @OneToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
     private Image mainImage;
     @OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+    @JoinColumn(name = "image_id")
     private List<Image> images;
     @ManyToOne
     @JoinColumn(name = "user_id")

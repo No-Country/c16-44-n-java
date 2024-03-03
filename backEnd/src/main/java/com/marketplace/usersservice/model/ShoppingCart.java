@@ -24,5 +24,6 @@ public class ShoppingCart {
     @JoinColumn(name = "user_id")
     private User user;
     @OneToMany
+    @JoinColumn(name = "product_cart_id")
     private List<ProductCart> productCart;
 }

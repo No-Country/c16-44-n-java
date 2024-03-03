@@ -4,8 +4,8 @@ INSERT INTO user_type (user_type) VALUES ('USER'), ('ADMIN'), ('SELLER');
 --REVOKE INSERT, UPDATE, DELETE ON user_type FROM 'username'@'hostname';
 
 INSERT INTO image (id, url) VALUES ("uno", "https://www.pinterest.com/pin/7177618778483663");
-INSERT INTO image (id, url) VALUES ("dos", "https://www.pinterest.com/pin/7177618778483663");
-INSERT INTO image (id, url) VALUES ("tres", "https://www.pinterest.com/pin/7177618778483663");
+INSERT INTO image (id, url) VALUES ("dos", "https://www.pinterest.com/pin/71");
+INSERT INTO image (id, url) VALUES ("tres", "https://www.pinterest.com/pin/71776187784");
 
 
 INSERT INTO user (name, last_name, email, password, address) VALUES ("Jhon", "Mackenze", "jmackenze@mail.com", "1234", "Av greenDay 123");
@@ -13,7 +13,7 @@ INSERT INTO user (name, last_name, email, password, address, user_type_id) VALUE
 
 --INSERT INTO user (email, password) VALUES ('admin@gmail.com', '1234');
 
-INSERT INTO product_category (name) VALUES ('Vasos');
+INSERT INTO product_category (name) VALUES ('Manga');
 INSERT INTO product_category (name) VALUES ('Afiches');
 INSERT INTO product_category (name) VALUES ('Stikers');
 INSERT INTO product_category (name) VALUES ('Juegos');

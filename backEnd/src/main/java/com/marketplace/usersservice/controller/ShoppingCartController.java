@@ -45,10 +45,10 @@ public class ShoppingCartController {
 
     @GetMapping("/user/{userId}")
     public ResponseEntity<List<ShoppingCart>> getShoppingCartsByUserId(@PathVariable Long userId) {
-        // Recuperar el usuario de la base de datos utilizando el UserService, si está disponible
+
         Optional<User> userOptional = Optional.ofNullable(userService.findById(userId));
 
-        // Verificar si el usuario existe
+
         if (!userOptional.isPresent()) {
             return ResponseEntity.notFound().build();
         }
