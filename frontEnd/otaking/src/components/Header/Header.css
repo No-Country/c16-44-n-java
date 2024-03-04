@@ -80,16 +80,20 @@
 }
 
 .header__menu-user {
+  right: 0;
+}
+
+.header__menu-cataloge {
+  left: 220px;
+}
+
+.menu {
+  top: 80px;
+  z-index: 2;
   position: absolute;
   width: 170px;
   background-color: #253857;
   justify-self:center;
-  right: 0;
-  top: 80px;
-  z-index: 2;
-}
-
-.menu {
   display: grid;
   grid-template-rows: 0fr;
   transition: grid-template-rows 250ms ease-out, padding 250ms ease-out;

@@ -5,7 +5,7 @@ export default function useForm(formName) {
     [inputs, setInputs] = useState({}),
     base = useRef(undefined),
 
-    handleChange = useCallback((e) => {
+    handleChange = useCallback((e, callback) => {
       setInputs((input) => {
         const
           target = e.target,
@@ -14,6 +14,8 @@ export default function useForm(formName) {
         input[aName].hasMssg = true
         input[aName].value = target.value;
         input[aName].validationMessage = target.validationMessage
+
+        if (callback) callback(input)
 
         return structuredClone(input)
       })

@@ -1,0 +1,27 @@
+.search {
+  padding: 20px 50px;
+  display: grid;
+  grid-template-columns: repeat(4, 25%);
+  grid-template-rows: 80px 35px;
+  align-items: center;
+
+  hgroup {
+    background-color: green;
+    grid-column: span 2;
+  }
+
+  form {
+    grid-column: 4;
+    justify-self: end;
+  }
+
+  .flexbox-card {
+    grid-column: span 4;
+    grid-row: 3;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 30px;
+  }
+}
+

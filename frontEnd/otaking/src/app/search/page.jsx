@@ -1,3 +1,3 @@
 export default function Search() {
-  return <h3>hola</h3>
+  return <h3></h3>
 }

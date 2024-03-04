@@ -7,7 +7,12 @@ const ProductCard = ({ id, name, price, image_url }) => {
     return (
         <div className='product-card'>
             <div className='product-card__top'>
-                <Link href={`/v1/product/search/${id}`}>
+                <Link href={{
+                    pathname: '/item',
+                    query: {
+                        id
+                    }
+                }}>
                     <img src={image_url} className='product-card__img'></img> 
                 </Link>
             </div>
@@ -18,5 +23,4 @@ const ProductCard = ({ id, name, price, image_url }) => {
         </div>
     )
 }
-
 export default ProductCard

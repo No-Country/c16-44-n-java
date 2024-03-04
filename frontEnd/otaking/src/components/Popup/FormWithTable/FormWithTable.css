@@ -1,0 +1,23 @@
+.popup-list {
+  border-collapse: collapse;
+}
+
+.popup-list :where(tfoot th, td) {
+  text-align: right;
+}
+
+.popup-list :where(tbody th) {
+  text-align : left;
+}
+
+.popup-list :where(th, td) {
+  padding: 10px 20px;
+}
+
+.popup-list :where(tr):not(tfoot > tr) {
+  border-bottom: 2px solid #fcf5eb42;
+}
+
+.popup-list__headers {
+  background-color: #040F3C;
+}
