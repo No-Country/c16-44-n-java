@@ -7,6 +7,11 @@ const name_asc = 'http://localhost:8080/v1/product/ordered-by-name-asc'
 const price_high = 'http://localhost:8080/v1/product/low-to-high'
 const price_low = 'http://localhost:8080/v1/product/high-to-low'
 
+const optionsGET = {
+  headers,
+  next: { revalidate: 15 }
+}
+
 const setPostOpt = (form) => ({
   method: 'POST',
   headers,
@@ -14,7 +19,7 @@ const setPostOpt = (form) => ({
 })
 
 export const getAllUsers = () => {
-  return fetch('/api', { headers })
+  return fetch('/api', optionsGET)
     .then(confirm)
 }
 
@@ -36,7 +41,7 @@ export const login = (form) => {
 }
 
 export const getCategory = (category) => {
-  return fetch(product + '/category/' + category, { headers, next: { revalidate: 1 } })
+  return fetch(product + '/category/' + category, optionsGET)
     .then(confirm)
 }
 
@@ -64,4 +69,17 @@ export const getCategoryHigh = () => {
 export const getCategoryLow = () => {
   return fetch(`${price_low}`, { headers, next: { revalidate: 15 } })
     .then(confirm)
+}
+
+export const getProduct = (id) => {
+  return fetch(product + `/search/${id}`, optionsGET)
+    .then(confirm)
+}
+
+export const getAllProductos = (param = '/all', page = 1) => {
+  return fetch(product + param + '?page=' + page, optionsGET)
+    .then(confirm)
+    .then(res => {
+      return res.content
+    })
 }

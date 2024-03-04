@@ -9,6 +9,7 @@ import Link from 'next/link';
 
 export default function Header() {
   const [userMenu, setUserMenu] = useState(false);
+  const [cataloge, setCataloge] = useState(false)
   const { openPopup, user, setUser } = useGlobalContext(); 
 
   function handleMenuUserBtn(e) {
@@ -22,7 +23,7 @@ export default function Header() {
           <Image className='logo__crown' src={crown} alt="crown" />
           <h1 className='logo__title'>Otaking</h1>
         </Link>
-        <button className='header__menu'>Catálogo&nbsp;
+        <button className='header__menu' onClick={() => setCataloge(!cataloge)}>Catálogo&nbsp;
           <img className='header__arrow' src='/bxs--down-arrow.svg' alt='down-arrow' />
         </button>
         <Searchbar />
@@ -46,6 +47,11 @@ export default function Header() {
               <li><button className='menu__item' data-popup='signUp' onClick={handleMenuUserBtn}>Registrarse</button></li>
             </>
           }
+        </ul>
+      </menu>
+      <menu className={`header__menu-cataloge menu${cataloge ? ' menu_open' : ''}`}>
+        <ul className='menu__list' onClick={() => setCataloge(false)}>
+          <li><Link href={`/search/all`} className='menu__item' >Todo</Link></li>
         </ul>
       </menu>
     </header>

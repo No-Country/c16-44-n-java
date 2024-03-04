@@ -6,6 +6,10 @@
   text-align: right;
 }
 
+.popup-list :where(tbody th) {
+  text-align : left;
+}
+
 .popup-list :where(th, td) {
   padding: 10px 20px;
 }
@@ -15,6 +19,5 @@
 }
 
 .popup-list__headers {
-  text-align: left;
   background-color: #040F3C;
 }

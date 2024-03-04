@@ -1,5 +1,5 @@
 .form {
-  width: 400px;
+  min-width: 400px;
   padding: 40px 30px;
   background-color: #253857;
   border-radius: 20px;

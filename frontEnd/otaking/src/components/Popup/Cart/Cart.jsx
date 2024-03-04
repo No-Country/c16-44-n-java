@@ -9,9 +9,9 @@ export default function Cart() {
   const {popups:{cart}} = useGlobalContext();
   const {inputs, handleChange: onChange} = useForm('Comprar');
   const [products, setProducts] = useState([
-    {name: 'kakashi', price: 50, amount: 1},
+    {name: 'kakashi kakashi kakashi', price: 50, amount: 1},
     {name: 'yae', price: 40, amount: 1},
-    {name: 'furina', price: 80, amount: 1}
+    {name: 'woody', price: 80, amount: 1}
   ]);
   const [sum, setSum] = useState(products.reduce((acc, {price}) => acc + price, 0))
 
