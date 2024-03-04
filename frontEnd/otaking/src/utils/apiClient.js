@@ -36,7 +36,7 @@ export const login = (form) => {
 }
 
 export const getCategory = (category) => {
-  return fetch(product + '/category/' + category, { headers, next: { revalidate: 15 } })
+  return fetch(product + '/category/' + category, { headers, next: { revalidate: 1 } })
     .then(confirm)
 }
 
