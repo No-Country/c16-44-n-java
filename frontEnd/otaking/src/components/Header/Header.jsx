@@ -28,7 +28,7 @@ export default function Header() {
         <Searchbar />
       </div>
       <div className="header__user">
-        <button className='header__btn-cart'></button>
+        <button className='header__btn-cart' data-popup='cart' onClick={handleMenuUserBtn} />
         {user ? 
           <button className='header__btn-perfil' onClick={() => setUserMenu(!userMenu)}>¡Hola {user.name}!</button> :
           <button className='header__btn-user' onClick={() => setUserMenu(!userMenu)}></button>
