@@ -40,9 +40,9 @@ export const getCategory = (category) => {
     .then(confirm)
 }
 
-export const getCategoryDes = async () => {
+export const getCategoryDes = async (category) => {
   try {
-    const response = await fetch(name_des, { headers });
+    const response = await fetch(name_des, category, { headers });
     const data = await response.json();
     return data;
   } catch (error) {
