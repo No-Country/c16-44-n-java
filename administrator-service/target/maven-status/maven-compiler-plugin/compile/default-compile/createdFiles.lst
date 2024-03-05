@@ -1,8 +1,0 @@
-com\marketplace\administratorservice\AdministratorServiceApplication.class
-com\marketplace\administratorservice\service\IAdminService.class
-com\marketplace\administratorservice\repository\AdminRepository.class
-com\marketplace\administratorservice\service\AdminService.class
-com\marketplace\administratorservice\model\Admin.class
-com\marketplace\administratorservice\dto\AdminDTO.class
-com\marketplace\administratorservice\dto\AdminDTO$AdminDTOBuilder.class
-com\marketplace\administratorservice\controller\AdminController.class
