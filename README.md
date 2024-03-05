@@ -39,7 +39,7 @@
 | [![Linkedin](https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/fernando-alc%C3%A1zar-malfav%C3%B3n-44b536262/) [![Github](https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white)](https://github.com/Wlfernando) [![Figma](https://img.shields.io/badge/Figma-F24E1E?style=for-the-badge&logo=figma&logoColor=white)](https://www.figma.com/files/user/1226944014163296312?fuid=1113256141133222267)|
 
 
-### Project Manager
+### Project Manager and Front-end
 
 
   
