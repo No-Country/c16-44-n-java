@@ -15,7 +15,7 @@ import lombok.NoArgsConstructor;
 @Entity(name = "user_type")
 public class UserType {
 
-    @NotNull
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
