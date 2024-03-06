@@ -1,0 +1,122 @@
+.header {
+  background-color: #040f3c;
+  height: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  column-gap: 30px;
+  position: relative;
+}
+
+.header__wrapper {
+  display: flex;
+  column-gap: 30px;
+  align-items: center;
+  width: 100%;
+  max-width: 870px;
+}
+
+.header__menu {
+  background-color: transparent;
+  border: none;
+  font-family: inherit;
+  font-size: 24px;
+}
+
+.header__arrow {
+  width: 15px;
+  height: 15px;
+}
+
+.logo {
+  display: flex;
+  gap: 12px;
+  margin-inline-start: 50px;
+  align-items: center;
+}
+
+.logo__crown {
+  width: 40px;
+  height: 40px;
+  position: relative;
+  bottom: 4px;
+}
+
+.logo__title {
+  font-weight: 700;
+  font-size: 24px;
+  color: #fff;
+}
+
+.header__user {
+  display: flex;
+  column-gap: 15px;
+  margin-inline-end: 50px;
+}
+
+.header__btn-cart, .header__btn-user {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background: no-repeat center / 80%;
+  cursor: pointer;
+}
+
+.header__btn-cart {
+  background-image: url('../../../public/bitcoin-icons--cart-filled.svg');
+}
+
+.header__btn-user {
+  background-image: url('../../../public/ph--user-fill.svg')
+}
+
+.header__btn-perfil {
+  padding: 0 12px;
+  border-radius: 20px;
+  background-color: transparent;
+  border: 2px solid #FCF5EB;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.header__menu-user {
+  right: 0;
+}
+
+.header__menu-cataloge {
+  left: 220px;
+}
+
+.menu {
+  top: 80px;
+  z-index: 2;
+  position: absolute;
+  width: 170px;
+  background-color: #253857;
+  justify-self:center;
+  display: grid;
+  grid-template-rows: 0fr;
+  transition: grid-template-rows 250ms ease-out, padding 250ms ease-out;
+  gap: 20px;
+  justify-content: start;
+  padding: 0;
+}
+
+.menu_open {
+  grid-template-rows: 1fr;
+  padding: 15px 0;
+}
+
+.menu__list {
+  overflow: hidden;
+  display: grid;
+  gap: 20px;
+  grid-template-columns: auto;
+}
+
+.menu__item {
+  background-color: transparent;
+  font-size: 18px;
+  margin-inline-start: 15px;
+  cursor: default;
+}

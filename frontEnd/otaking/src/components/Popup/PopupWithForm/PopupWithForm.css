@@ -1,0 +1,51 @@
+.form {
+  min-width: 400px;
+  padding: 40px 30px;
+  background-color: #253857;
+  border-radius: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+.form__title {
+  font-size: 32px;
+}
+
+.form__field {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.form__menu {
+  display: flex;
+  justify-content: space-between;
+}
+
+.form__btn_type_sbm {
+  background-color: #FD710F;
+}
+
+.form__btn_type_cl {
+  background-color: #C22700;
+}
+
+.form__btn {
+  font-size: 18px;
+  width: 150px;
+  height: 45px;
+  border-radius: 12px;
+  transition: opacity 100ms linear;
+}
+
+.form__btn:hover {
+  opacity: .8;
+}
+
+.form__item {
+  border-bottom: 1px solid #FD710F;
+  background-color: transparent;
+  width: 100%;
+  font-size: 18px;
+}

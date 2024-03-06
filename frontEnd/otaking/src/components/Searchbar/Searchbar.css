@@ -1,0 +1,35 @@
+.search-form {
+  display: flex;
+  flex-grow: 2;
+}
+
+.search-form__bar {
+  border: 0;
+  background-color: #fff;
+  color: black;
+  padding-inline-start: 5px;
+  outline: none;
+  flex-grow: 2;
+  border-radius: 7px 0 0 7px;
+}
+
+.search-form__btn {
+  background-color: #fff;
+  border: 0;
+  width: 50px;
+  height: 50px;
+  position: relative;
+  border-radius: 0 7px 7px 0;
+  cursor: pointer;
+}
+
+.search-form__btn::after {
+  background-image: url('../../../public/mdi-light--magnify.svg');
+  background-size: 60%;
+  background-repeat: no-repeat;
+  background-position: center;
+  position: absolute;
+  inset: 0;
+  content: '';
+  opacity: .5;
+}

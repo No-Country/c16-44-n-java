@@ -1,0 +1,20 @@
+.popup {
+  z-index: 1;
+  position: fixed;
+  inset: 0;
+  display: grid;
+  grid-template-columns: auto;
+  grid-template-rows: auto;
+  place-content: center;
+  background-color: rgba(0, 0, 0, .3);
+  visibility: hidden;
+  opacity: 0;
+  transition:
+    visibility 250ms ease-in-out,
+    opacity 250ms ease-in-out;
+}
+
+.popup_open {
+  visibility: visible;
+  opacity: 1;
+}
