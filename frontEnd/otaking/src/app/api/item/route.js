@@ -1,5 +1,5 @@
 import { headers, res } from "@/utils/api"
-const BASE_URL = 'http://localhost:8080/v1/product'
+const BASE_URL = 'https://c16-44-n-java.onrender.com/v1/product'
 
 export const POST = (req) => {
   return Promise.resolve(req.json())
@@ -9,5 +9,5 @@ export const POST = (req) => {
         method: 'POST',
         body: JSON.stringify(res)
       })
-  }).then(res)
+    }).then(res)
 }

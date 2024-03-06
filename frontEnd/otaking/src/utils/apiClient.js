@@ -1,11 +1,11 @@
 import { headers, confirm } from './api.js'
 
-const user = 'http://localhost:8080/v1/user'
-const product = 'http://localhost:8080/v1/product'
-const name_des = 'http://localhost:8080/v1/product/ordered-by-name-des'
-const name_asc = 'http://localhost:8080/v1/product/ordered-by-name-asc'
-const price_high = 'http://localhost:8080/v1/product/low-to-high'
-const price_low = 'http://localhost:8080/v1/product/high-to-low'
+const user = 'https://c16-44-n-java.onrender.com/v1/user'
+const product = 'https://c16-44-n-java.onrender.com/v1/product'
+const name_des = 'https://c16-44-n-java.onrender.com/v1/product/ordered-by-name-des'
+const name_asc = 'https://c16-44-n-java.onrender.com/v1/product/ordered-by-name-asc'
+const price_high = 'https://c16-44-n-java.onrender.com/v1/product/low-to-high'
+const price_low = 'https://c16-44-n-java.onrender.com/v1/product/high-to-low'
 
 const optionsGET = {
   headers,
