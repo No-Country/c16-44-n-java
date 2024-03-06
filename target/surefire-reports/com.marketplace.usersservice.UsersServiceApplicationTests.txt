@@ -1,4 +1,4 @@
 -------------------------------------------------------------------------------
 Test set: com.marketplace.usersservice.UsersServiceApplicationTests
 -------------------------------------------------------------------------------
-Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 21.68 s -- in com.marketplace.usersservice.UsersServiceApplicationTests
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 21.87 s -- in com.marketplace.usersservice.UsersServiceApplicationTests
