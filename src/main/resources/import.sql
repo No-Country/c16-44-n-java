@@ -1,5 +1,9 @@
 -- Modifications To user_type
 INSERT INTO user_type (user_type) VALUES ('USER'), ('ADMIN'), ('SELLER');
+INSERT INTO product_category (name) VALUES ('Manga');
+INSERT INTO product_category (name) VALUES ('Indumentaria');
+INSERT INTO product_category (name) VALUES ('Accesorios');
+INSERT INTO product_category (name) VALUES ('Figuras');
 -- Poner el usuario que va a conectarse a la base de datos
 -- REVOKE INSERT, UPDATE, DELETE ON user_type FROM 'username'@'hostname';
 
@@ -11,10 +15,7 @@ INSERT INTO user_type (user_type) VALUES ('USER'), ('ADMIN'), ('SELLER');
 -- INSERT INTO user (email, password) VALUES ('admin@gmail.com', '1234');
 
 
--- INSERT INTO product_category (name) VALUES ('Manga');
--- INSERT INTO product_category (name) VALUES ('Indumentaria');
--- INSERT INTO product_category (name) VALUES ('Accesorios');
--- INSERT INTO product_category (name) VALUES ('Figuras');
+
 
 -- INSERT INTO image(url, id) VALUES ('https://res.cloudinary.com/dvckhdihm/image/upload/v1709646506/NCproducts/h767tybicr6d0dxcypfx.jpg', 'NCproducts/h767tybicr6d0dxcypfx');
 
