@@ -1,8 +1,0 @@
-.search {
-  padding: 20px 50px;
-  display: grid;
-  grid-template-columns: repeat(4, 25%);
-  grid-template-rows: 80px 35px;
-  align-items: center;
-}
-
