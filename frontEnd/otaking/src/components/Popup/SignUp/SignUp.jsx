@@ -23,6 +23,12 @@ export default function SignUp() {
     const values = getValues()
     if(values.password !== values.confirmPass) return
     
+    if (values.userType === 1) {
+      values.rol = 'USER'
+    } else {
+      values.rol = 'SELLER'
+    }
+
     const format = {...values, userType: {id: +values.userType, userType: values.rol}}
 
     postUser(format).then(closeAllPopups)

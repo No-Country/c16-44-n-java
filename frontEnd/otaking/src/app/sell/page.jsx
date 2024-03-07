@@ -16,6 +16,7 @@ export default function Sell() {
     }
 
     const format = { ...values, category: { id: values.category }, user: { id: user.id, userType: user.userType } }
+    console.log(format)
     postItem(format).then(resetForm)
   }
 
@@ -29,11 +30,10 @@ export default function Sell() {
       <input className="sell-form__item" onChange={handleChange} value={brand?.value ?? ''} type='text' name='brand' placeholder="marca" required />
       <select className="sell-form__item" name="category" value={category?.value} onChange={handleChange}>
         <option value="0">--Elije una categoría--</option>
-        <option value="1">Vasos</option>
-        <option value="2">Afiches</option>
-        <option value="3">Stikers</option>
-        <option value="4">Juegos</option>
-        <option value="7">Manga</option>
+        <option value="1">Manga</option>
+        <option value="2">Indumentaria</option>
+        <option value="3">Accesorios</option>
+        <option value="4">Figuras</option>
       </select>
       <menu className="sell-form__menu">
         <button className='sell-form__btn' type="submit">Enviar</button>

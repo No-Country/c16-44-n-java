@@ -4,22 +4,22 @@ import { Showcase } from "@/components/Showcase/Showcase";
 import { getCategory } from "@/utils/apiClient";
 
 export default async function Home() {
-  const categories = ['vasos', 'afiches', 'stikers', 'juegos']
+  const categories = ['manga', 'indumentaria', 'accesorios', 'figuras']
     .map(category => getCategory(category))
 
   const [
-    glasses,
-    affiches,
-    stickers,
-    games,
+    manga,
+    fabrics,
+    accesories,
+    figures,
   ] = await Promise.all(categories)
 
   return <main className="main">
     <GreetingBanner />
     <NavCategory />
-    <Showcase name_category={'Vasos'} items={glasses} />
-    <Showcase name_category={'Afiches'} items={affiches} />
-    <Showcase name_category={'Stickers'} items={stickers} />
-    <Showcase name_category={'Juegos'} items={games} />
+    <Showcase name_category={'Manga'} items={manga} />
+    <Showcase name_category={'Indumentaria'} items={fabrics} />
+    <Showcase name_category={'Acessorios'} items={accesories} />
+    <Showcase name_category={'Figuras'} items={figures} />
   </main>
 }
