@@ -1,5 +1,8 @@
 -- Modifications To user_type
--- INSERT INTO user_type (user_type) VALUES ('USER'), ('ADMIN'), ('SELLER');
+INSERT INTO user_type (id, user_type) VALUES (1, 'USER');
+INSERT INTO user_type (id, user_type) VALUES (2, 'ADMIN');
+INSERT INTO user_type (id, user_type) VALUES (3, 'SELLER');
+
 INSERT INTO product_category (name) VALUES ('Manga');
 INSERT INTO product_category (name) VALUES ('Indumentaria');
 INSERT INTO product_category (name) VALUES ('Accesorios');
