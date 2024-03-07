@@ -16,6 +16,7 @@ export default function Sell() {
     }
 
     const format = { ...values, category: { id: values.category }, user: { id: user.id, userType: user.userType } }
+    console.log(format)
     postItem(format).then(resetForm)
   }
 

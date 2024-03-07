@@ -29,6 +29,8 @@
     grid-column: span 4;
     padding: 20px 30px;
     margin-top: 30px;
+    width: 50%;
+    justify-self: center;
   }
 }
 

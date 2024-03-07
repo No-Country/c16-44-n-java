@@ -41,7 +41,7 @@ export const login = (form) => {
 }
 
 export const getCategory = (category) => {
-  return fetch(product + '/category/' + category + '?page=0', optionsGET)
+  return fetch(product + '/category/' + category, optionsGET)
     .then(confirm)
 }
 
