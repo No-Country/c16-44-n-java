@@ -23,5 +23,12 @@
     justify-content: space-between;
     gap: 30px;
   }
+
+  button {
+    grid-row: 4;
+    grid-column: span 4;
+    padding: 20px 30px;
+    margin-top: 30px;
+  }
 }
 

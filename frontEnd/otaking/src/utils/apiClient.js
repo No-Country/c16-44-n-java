@@ -76,7 +76,7 @@ export const getProduct = (id) => {
     .then(confirm)
 }
 
-export const getAllProductos = (param = '/all', page = 1) => {
+export const getAllProductos = ({param = '/all', page = 1}) => {
   return fetch(product + param + '?page=' + page, optionsGET)
     .then(confirm)
     .then(res => {

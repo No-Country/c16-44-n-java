@@ -6,11 +6,26 @@ import { useEffect, useState } from 'react'
 
 export default function All() {
   const [cards, setCards] = useState([])
+  const [page, setPage] = useState(1)
 
   useEffect(() => {
-    getAllProductos()
+    getAllProductos({})
       .then(setCards)
   }, [])
+
+  function click() {
+    getAllProductos({page})
+      .then((res) => {
+        setCards(prev => [...prev, ...res])
+        setPage(page + 1)
+      })
+  }
+
+  function change(e) {
+    setPage(1)
+    getAllProductos({param: e.target.value, page: 1})
+      .then(setCards)
+  }
 
   return <main className='search'>
     <hgroup>
@@ -20,7 +35,7 @@ export default function All() {
     <form>
       <search>
         <label>Ordenar por: </label>
-        <select name='filter' >
+        <select name='filter' onChange={change} >
           <optgroup label='nombre'>
             <option value={'/ordered-by-name-asc'}>ascendente</option>
             <option value={'/ordered-by-name-des'}>descendente</option>
@@ -37,5 +52,6 @@ export default function All() {
         <ProductCard key={card.id} {...card} />
       ))}
     </div>
+    <button type='button' onClick={click}>Cargar</button>
   </main>
 }
