@@ -1,8 +1,9 @@
-import { confirm, headers, res } from '@/utils/api.js'
-export const BASE_URL = 'https://c16-44-n-java.onrender.com/v1/user'
+import { confirm, headers, res, BASE_URL } from '@/utils/api.js'
+
+const user = BASE_URL + '/user'
 
 const postUser = (res) => {
-  return fetch(BASE_URL + '/create', {
+  return fetch(user + '/create', {
     method: 'POST',
     headers,
     body: JSON.stringify(res)
@@ -11,7 +12,7 @@ const postUser = (res) => {
 }
 
 export function GET() {
-  return fetch(BASE_URL + '/all', {
+  return fetch(user + '/all', {
     headers,
   }).then(confirm)
   .then(res)

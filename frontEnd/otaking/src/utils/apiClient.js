@@ -1,11 +1,11 @@
-import { headers, confirm } from './api.js'
+import { headers, confirm, BASE_URL } from './api.js'
 
-const user = 'https://c16-44-n-java.onrender.com/v1/user'
-const product = 'https://c16-44-n-java.onrender.com/v1/product'
-const name_des = 'https://c16-44-n-java.onrender.com/v1/product/ordered-by-name-des'
-const name_asc = 'https://c16-44-n-java.onrender.com/v1/product/ordered-by-name-asc'
-const price_high = 'https://c16-44-n-java.onrender.com/v1/product/low-to-high'
-const price_low = 'https://c16-44-n-java.onrender.com/v1/product/high-to-low'
+const user = BASE_URL + '/user';
+const product = BASE_URL + '/product'
+const name_des = product + '/ordered-by-name-des'
+const name_asc = product + '/ordered-by-name-asc'
+const price_high = product + '/low-to-high'
+const price_low = product + '/high-to-low'
 
 const optionsGET = {
   headers,
@@ -41,7 +41,7 @@ export const login = (form) => {
 }
 
 export const getCategory = (category) => {
-  return fetch(product + '/category/' + category, optionsGET)
+  return fetch(product + '/category/' + category + '?page=0', optionsGET)
     .then(confirm)
 }
 

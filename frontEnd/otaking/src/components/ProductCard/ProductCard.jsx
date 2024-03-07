@@ -3,7 +3,7 @@ import Link from 'next/link'
 import React from 'react'
 import '@/components/ProductCard/ProductCard.css'
 
-const ProductCard = ({ id, name, price, image_url }) => {
+const ProductCard = ({ id, name, price, mainImage }) => {
     return (
         <div className='product-card'>
             <div className='product-card__top'>
@@ -13,7 +13,7 @@ const ProductCard = ({ id, name, price, image_url }) => {
                         id
                     }
                 }}>
-                    <img src={image_url} className='product-card__img'></img> 
+                    <img src={mainImage?.url} className='product-card__img'></img> 
                 </Link>
             </div>
             <div className="product-card__bottom">
