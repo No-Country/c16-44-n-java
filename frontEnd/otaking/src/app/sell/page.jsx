@@ -6,7 +6,7 @@ import { useGlobalContext } from "@/context/store";
 import { useState } from "react";
 
 export default function Sell() {
-  const { inputs: { name, price, stock, description, brand, category }, handleChange, resetForm, getValues } = useForm('sellForm');
+  const { inputs: { name, price, stock, description, brand, category }, handleChange, resetForm } = useForm('sellForm');
   const { user } = useGlobalContext()
   const [files, setFiles] = useState(null)
   const [file, setFile] = useState(null)
@@ -22,7 +22,7 @@ export default function Sell() {
       images.append(`images`, file)
     })
     
-    postItem({...form, user}, images)
+    postItem({...form, user}, images).then(resetForm)
   }
 
   return <main className="sell">
