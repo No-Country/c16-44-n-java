@@ -1,18 +1,20 @@
 import '@/app/item/page.css'
 import { getProduct } from '@/utils/apiClient'
-
 // id, name, price, description, category, brand, image_url, user
 
-export const Item = async ({searchParams}) => {
+export const Item = async ({ searchParams }) => {
+
+    let default_img = './images/camara.jpg'
+
     const {
-        name, 
-        brand, 
-        category, 
-        user, 
-        price, 
-        description, 
-        mainImage, 
-        images
+        name,
+        brand,
+        category,
+        user,
+        price,
+        description,
+        // mainImage, 
+        // images
     } = await getProduct(searchParams.id)
 
     return (<main>
@@ -21,12 +23,12 @@ export const Item = async ({searchParams}) => {
                 <div className="size-columns">
                     <div className="product-images-block">
                         <div className="thumbnail-container">
-                            <img src={mainImage}/>
+                            <img src={default_img} />
                         </div>
                         <div className="thumbnail-container thumbnail">
-                            <img src={images[0]}/>
-                            <img src={images[1]}/>
-                            <img src={images[2]}/>
+                            <img src={default_img} />
+                            <img src={default_img} />
+                            <img src={default_img} />
                         </div>
                     </div>
                 </div>
@@ -37,14 +39,14 @@ export const Item = async ({searchParams}) => {
                             <h3 className="label">Descripcion</h3>
                             <p>{description}</p>
                         </div>
-                    <div className="size-columns">
-                    <div className="encuadre">
-                            <p>{brand}</p>
-                            <p>{category}</p> 
-                            <p>{user?.name}</p>    
+                        <div className="size-columns">
+                            <div className="encuadre">
+                                <p>{brand}</p>
+                                <p>{category}</p>
+                                <p>{user?.name}</p>
+                            </div>
                         </div>
-                    </div>
-                       
+
                     </div>
                     <div className="product-description-block">
                         <h3>Precio final:</h3>
@@ -52,9 +54,9 @@ export const Item = async ({searchParams}) => {
                     </div>
                     <div className="product-description-block">
                         <form className="selector">
-                        <label className="label" htmlFor="cant">Cantidad</label>
+                            <label className="label" htmlFor="cant">Cantidad</label>
                             <div className="encuadre">
-                                
+
                                 <fieldset>
                                     <input className="input-number" type="number">
                                     </input>
