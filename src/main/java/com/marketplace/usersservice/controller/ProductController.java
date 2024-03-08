@@ -23,7 +23,7 @@ public class ProductController {
     @Autowired
     private IProductService productService;
 
-    @CrossOrigin(origins = "*" , allowedHeaders = "*")
+    //@CrossOrigin(origins = "*" , allowedHeaders = "*")
     @PostMapping("/saveImages")
     public ResponseEntity<?> saveImages(
         @RequestParam("images") List<MultipartFile> files,
