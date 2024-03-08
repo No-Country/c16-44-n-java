@@ -30,7 +30,7 @@ export default function Cart() {
       return [...prev]
     })
   }
-  console.log(products)
+  
   return <FormWithTable 
     heads={['Nombre', 'Cantidad', 'Precio']} 
     isOpen={cart} 

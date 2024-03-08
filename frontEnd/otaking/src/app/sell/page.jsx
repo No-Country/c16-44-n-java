@@ -22,7 +22,7 @@ export default function Sell() {
       images.append(`images`, file)
     })
     
-    postItem({...form, user}, images).then(resetForm)
+    postItem({...form, user}, images)
   }
 
   return <main className="sell">

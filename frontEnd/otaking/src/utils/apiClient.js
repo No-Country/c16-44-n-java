@@ -47,7 +47,7 @@ export const postItem = ({
       id: user.id,
       userType: user.userType
     },
-    category: {
+    Category: {
       id: category,
     },
   }
@@ -62,6 +62,7 @@ export const postItem = ({
         body: images,
       })
     })
+    .catch(console.error)
 }
 
 export const login = (form) => {
