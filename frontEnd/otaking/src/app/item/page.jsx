@@ -21,12 +21,12 @@ export const Item = async ({searchParams}) => {
                 <div className="size-columns">
                     <div className="product-images-block">
                         <div className="thumbnail-container">
-                            <img src={mainImage}/>
+                            <img src={mainImage?.url}/>
                         </div>
                         <div className="thumbnail-container thumbnail">
-                            <img src={images[0]}/>
-                            <img src={images[1]}/>
-                            <img src={images[2]}/>
+                            <img src={images[0]?.url}/>
+                            <img src={images[1]?.url}/>
+                            <img src={images[2]?.url}/>
                         </div>
                     </div>
                 </div>

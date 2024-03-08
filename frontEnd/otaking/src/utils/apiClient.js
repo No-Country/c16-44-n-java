@@ -31,37 +31,36 @@ export const postItem = ({
   name,
   price,
   stock,
-  desciption,
+  description,
   brand,
   user,
   category,
-  mainImage,
-  images
-}) => {
+}, images) => {
   const form = {
     name,
     price,
     stock,
-    desciption,
+    description,
     brand,
     user: {
       id: user.id,
       userType: user.userType
     },
     category: {
-      id: category
+      id: category,
     },
   }
-  console.log({images, mainImage})
 
   return fetch(product + '/create', setPostOpt(form))
     .then(confirm)
     .then((res) => {
-      console.log(res, res.id)
-      return fetch(product + '/saveImages', setPostOpt({publicationId: res.id, mainImage, images}))
+      images.append('publicationId', res.id)
+
+      return fetch(product + '/saveImages', {
+        method: 'POST',
+        body: images,
+      })
     })
-    .then(console.log)
-    .catch(console.error)
 }
 
 export const login = (form) => {

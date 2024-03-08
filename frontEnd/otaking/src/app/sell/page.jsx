@@ -14,17 +14,15 @@ export default function Sell() {
   function handleSubmit(e) {
     e.preventDefault()
     const form = Object.fromEntries(new FormData(e.target))
-    console.log(file)
-    postItem({...form, images: files, user})
+    const images = new FormData()
 
-    // const values = getValues()
-    // for (const prop in values) {
-    //   if (!Number.isNaN(+values[prop])) values[prop] = +values[prop]
-    // }
+    images.append('mainImage', file)
 
-    // const format = { ...values, category: { id: values.category }, user: { id: user.id, userType: user.userType } }
-
-    // postItem(format, format.image).then(resetForm)
+    Array.from(files).forEach((file) => {
+      images.append(`images`, file)
+    })
+    
+    postItem({...form, user}, images)
   }
 
   return <main className="sell">
@@ -43,7 +41,7 @@ export default function Sell() {
         <option value="4">Figuras</option>
       </select>
       <input className="sell-form__item" onChange={e => setFile(e.target.files[0])} type='file' name='mainImage' required accept="*" encType="multipart/form-data" />
-      <input className="sell-form__item" onChange={e => setFiles(e.target.files[0])} type='file' name='images' multiple required accept="*" encType="multipart/form-data" />
+      <input className="sell-form__item" onChange={e => setFiles(e.target.files)} type='file' name='images' multiple required accept="*" encType="multipart/form-data" />
       <menu className="sell-form__menu">
         <button className='sell-form__btn' type="submit">Enviar</button>
         <button className='sell-form__btn' type="reset" onClick={resetForm}>Borrar</button>
