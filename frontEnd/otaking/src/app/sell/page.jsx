@@ -3,25 +3,32 @@ import useForm from "@/hooks/useForm"
 import './page.css'
 import { postItem } from "@/utils/apiClient";
 import { useGlobalContext } from "@/context/store";
+import { useState } from "react";
 
 export default function Sell() {
   const { inputs: { name, price, stock, description, brand, category }, handleChange, resetForm, getValues } = useForm('sellForm');
   const { user } = useGlobalContext()
+  const [files, setFiles] = useState(null)
+  const [file, setFile] = useState(null)
 
   function handleSubmit(e) {
     e.preventDefault()
-    const values = getValues()
-    for (const prop in values) {
-      if (!Number.isNaN(+values[prop])) values[prop] = +values[prop]
-    }
+    const form = Object.fromEntries(new FormData(e.target))
+    console.log(file)
+    postItem({...form, images: files, user})
 
-    const format = { ...values, category: { id: values.category }, user: { id: user.id, userType: user.userType } }
-    console.log(format)
-    postItem(format).then(resetForm)
+    // const values = getValues()
+    // for (const prop in values) {
+    //   if (!Number.isNaN(+values[prop])) values[prop] = +values[prop]
+    // }
+
+    // const format = { ...values, category: { id: values.category }, user: { id: user.id, userType: user.userType } }
+
+    // postItem(format, format.image).then(resetForm)
   }
 
   return <main className="sell">
-    <form className="sell-form" name="sellForm" style={{ display: 'flex', flexDirection: 'column' }} onSubmit={handleSubmit} noValidate>
+    <form className="sell-form" name="sellForm" style={{ display: 'flex', flexDirection: 'column' }} onSubmit={handleSubmit} noValidate encType="multipart/form-data">
       <h3 className="sell-form__title">¿Qué vamos a vender?</h3>
       <input className="sell-form__item" onChange={handleChange} value={name?.value ?? ''} type='text' name='name' placeholder="Nombre del producto" required />
       <input className="sell-form__item" onChange={handleChange} value={price?.value ?? ''} type='number' name='price' placeholder="Precio" required />
@@ -35,6 +42,8 @@ export default function Sell() {
         <option value="3">Accesorios</option>
         <option value="4">Figuras</option>
       </select>
+      <input className="sell-form__item" onChange={e => setFile(e.target.files[0])} type='file' name='mainImage' required accept="*" encType="multipart/form-data" />
+      <input className="sell-form__item" onChange={e => setFiles(e.target.files[0])} type='file' name='images' multiple required accept="*" encType="multipart/form-data" />
       <menu className="sell-form__menu">
         <button className='sell-form__btn' type="submit">Enviar</button>
         <button className='sell-form__btn' type="reset" onClick={resetForm}>Borrar</button>
