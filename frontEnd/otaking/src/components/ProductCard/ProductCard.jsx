@@ -4,6 +4,7 @@ import React from 'react'
 import '@/components/ProductCard/ProductCard.css'
 
 const ProductCard = ({ id, name, price, mainImage }) => {
+    let default_img = '../images/camara.jpg'
     return (
         <div className='product-card'>
             <div className='product-card__top'>
@@ -13,7 +14,7 @@ const ProductCard = ({ id, name, price, mainImage }) => {
                         id
                     }
                 }}>
-                    <img src={mainImage?.url} className='product-card__img'></img> 
+                    <img src={default_img} className='product-card__img'></img> 
                 </Link>
             </div>
             <div className="product-card__bottom">
