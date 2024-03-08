@@ -6,6 +6,7 @@ const name_des = product + '/ordered-by-name-des'
 const name_asc = product + '/ordered-by-name-asc'
 const price_high = product + '/low-to-high'
 const price_low = product + '/high-to-low'
+const cart = BASE_URL + '/shoppingcarts'
 
 const optionsGET = {
   headers,
@@ -114,4 +115,8 @@ export const getAllProductos = ({param = '/all', page = 1}) => {
     .then(res => {
       return res.content
     })
+}
+
+export const addCart = (form) => {
+  return fetch(cart + '/add', setPostOpt(form))
 }

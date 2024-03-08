@@ -1,5 +1,6 @@
 import '@/app/item/page.css'
 import { getProduct } from '@/utils/apiClient'
+import AddItem from './AddItem'
 
 // id, name, price, description, category, brand, image_url, user
 
@@ -12,7 +13,7 @@ export const Item = async ({searchParams}) => {
         price, 
         description, 
         mainImage, 
-        images
+        images,
     } = await getProduct(searchParams.id)
 
     return (<main>
@@ -51,17 +52,7 @@ export const Item = async ({searchParams}) => {
                         <h2 className="title">${price}</h2>
                     </div>
                     <div className="product-description-block">
-                        <form className="selector">
-                        <label className="label" htmlFor="cant">Cantidad</label>
-                            <div className="encuadre">
-                                
-                                <fieldset>
-                                    <input className="input-number" type="number">
-                                    </input>
-                                </fieldset>
-                                <button className="button-style">Añadir al carrito</button>
-                            </div>
-                        </form>
+                        <AddItem productId={searchParams.id} name={name} price={price} />
                     </div>
                 </div>
             </div>

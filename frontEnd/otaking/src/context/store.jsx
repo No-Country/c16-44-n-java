@@ -7,6 +7,7 @@ const GlobalContext = createContext({})
 export const GlobalContextProvider = ({children}) => {
   const [popups, openPopup, closeAllPopups] = usePopup('signIn', 'signUp', 'cart');
   const [user, setUser] = useState(null)
+  const [cart, setCart] = useState([])
 
   useEffect(() => {
     const user = localStorage.getItem('user')
@@ -19,6 +20,8 @@ export const GlobalContextProvider = ({children}) => {
     closeAllPopups, 
     user, 
     setUser,
+    cart,
+    setCart,
   }}>
     {children}
   </GlobalContext.Provider>
