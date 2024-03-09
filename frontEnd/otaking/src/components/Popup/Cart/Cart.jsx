@@ -2,43 +2,50 @@
 import { useGlobalContext } from "@/context/store.jsx";
 import './Cart.css';
 import FormWithTable from "../FormWithTable/FormWithTable";
-import useForm from "@/hooks/useForm";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 export default function Cart() {
-  const {popups:{cart}} = useGlobalContext();
-  const {inputs, handleChange: onChange} = useForm('Comprar');
-  const [products, setProducts] = useState([
-    {name: 'kakashi kakashi kakashi', price: 50, amount: 1},
-    {name: 'yae', price: 40, amount: 1},
-    {name: 'woody', price: 80, amount: 1}
-  ]);
-  const [sum, setSum] = useState(products.reduce((acc, {price}) => acc + price, 0))
+  const {popups:{cart}, closeAllPopups} = useGlobalContext();
+  const { cart: products, setCart} = useGlobalContext()
+
+  const [sum, setSum] = useState(0)
+
+  useEffect(() => {
+    setSum(products.reduce((acc, {quantity, price}) => acc + quantity * price, 0))
+  }, [products])
 
   function handleChange(e) {
-    function syncronize (inputs) {
-      let quantity = 0
+    setCart((prev)=> {
+      const product = prev.find(product => product.name === e.target.name)
 
-      for (const input in inputs) {
-        quantity += inputs[input].value * products.find(product => product.name === input).price
-      }
+      product.quantity = e.target.value
+      let total = 0
 
-      setSum(quantity)
-    }
+      prev.forEach((prod) => {
+        total += prod.quantity * prod.price
+      })
 
-    onChange(e, syncronize)
+      return [...prev]
+    })
   }
 
+  function submit() {
+    setCart([])
+    setSum(0)
+    closeAllPopups()
+  }
+  
   return <FormWithTable 
     heads={['Nombre', 'Cantidad', 'Precio']} 
     isOpen={cart} 
     title={'Comprar'}
     amount={sum}
+    onSubmit={submit}
   >
-    {products.map(({name, price, amount}, id) => <tr key={id}>
+    {products.map(({name, price, quantity}, id) => <tr key={id}>
         <th scope="row">{name}</th>
-        <td><input min={0} style={{width: 50, textAlign: 'center'}} name={name} type='number' value={inputs[name]?.value ?? amount} onChange={handleChange}/></td>
-        <td>{price * (inputs[name]?.value ?? 1)}</td>
+        <td><input min={0} style={{width: 50, textAlign: 'center'}} name={name} type='number' value={quantity} onChange={handleChange}/></td>
+        <td>{price * quantity}</td>
       </tr>
     )}
   </FormWithTable>

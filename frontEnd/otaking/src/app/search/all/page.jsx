@@ -23,10 +23,11 @@ export default function All() {
 
   function change(e) {
     setPage(1)
+    setCards([])
     getAllProductos({param: e.target.value, page: 1})
       .then(setCards)
   }
-
+console.log(cards)
   return <main className='search'>
     <hgroup>
       <h2>{`Mostrando productos para: todo`}</h2>

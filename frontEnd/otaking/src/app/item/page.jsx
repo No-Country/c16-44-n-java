@@ -1,20 +1,16 @@
 import '@/app/item/page.css'
 import { getProduct } from '@/utils/apiClient'
-// id, name, price, description, category, brand, image_url, user
 
 export const Item = async ({ searchParams }) => {
-
-    let default_img = './images/camara.jpg'
-
     const {
-        name,
-        brand,
-        category,
-        user,
-        price,
-        description,
-        // mainImage, 
-        // images
+        name, 
+        brand, 
+        category, 
+        user, 
+        price, 
+        description, 
+        mainImage, 
+        images,
     } = await getProduct(searchParams.id)
 
     return (<main>
@@ -23,12 +19,12 @@ export const Item = async ({ searchParams }) => {
                 <div className="size-columns">
                     <div className="product-images-block">
                         <div className="thumbnail-container">
-                            <img src={default_img} />
+                            <img src={mainImage?.url}/>
                         </div>
                         <div className="thumbnail-container thumbnail">
-                            <img src={default_img} />
-                            <img src={default_img} />
-                            <img src={default_img} />
+                            <img src={images[0]?.url}/>
+                            <img src={images[1]?.url}/>
+                            <img src={images[2]?.url}/>
                         </div>
                     </div>
                 </div>
@@ -46,24 +42,13 @@ export const Item = async ({ searchParams }) => {
                                 <p>{user?.name}</p>
                             </div>
                         </div>
-
                     </div>
                     <div className="product-description-block">
                         <h3>Precio final:</h3>
                         <h2 className="title">${price}</h2>
                     </div>
                     <div className="product-description-block">
-                        <form className="selector">
-                            <label className="label" htmlFor="cant">Cantidad</label>
-                            <div className="encuadre">
-
-                                <fieldset>
-                                    <input className="input-number" type="number">
-                                    </input>
-                                </fieldset>
-                                <button className="button-style">Añadir al carrito</button>
-                            </div>
-                        </form>
+                        <AddItem productId={searchParams.id} name={name} price={price} />
                     </div>
                 </div>
             </div>
