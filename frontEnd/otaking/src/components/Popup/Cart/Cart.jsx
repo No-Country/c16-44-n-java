@@ -5,7 +5,7 @@ import FormWithTable from "../FormWithTable/FormWithTable";
 import { useEffect, useState } from "react";
 
 export default function Cart() {
-  const {popups:{cart}} = useGlobalContext();
+  const {popups:{cart}, closeAllPopups} = useGlobalContext();
   const { cart: products, setCart} = useGlobalContext()
 
   const [sum, setSum] = useState(0)
@@ -15,7 +15,6 @@ export default function Cart() {
   }, [products])
 
   function handleChange(e) {
-    console.log(e.target.name)
     setCart((prev)=> {
       const product = prev.find(product => product.name === e.target.name)
 
@@ -23,12 +22,17 @@ export default function Cart() {
       let total = 0
 
       prev.forEach((prod) => {
-        console.log(prod)
         total += prod.quantity * prod.price
       })
 
       return [...prev]
     })
+  }
+
+  function submit() {
+    setCart([])
+    setSum(0)
+    closeAllPopups()
   }
   
   return <FormWithTable 
@@ -36,6 +40,7 @@ export default function Cart() {
     isOpen={cart} 
     title={'Comprar'}
     amount={sum}
+    onSubmit={submit}
   >
     {products.map(({name, price, quantity}, id) => <tr key={id}>
         <th scope="row">{name}</th>

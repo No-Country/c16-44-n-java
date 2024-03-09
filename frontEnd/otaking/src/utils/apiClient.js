@@ -48,15 +48,15 @@ export const postItem = ({
       userType: user.userType
     },
     Category: {
-      id: category,
+      id: category
     },
   }
-
+  console.log(category)
   return fetch(product + '/create', setPostOpt(form))
     .then(confirm)
     .then((res) => {
       images.append('publicationId', res.id)
-
+      console.log(res)
       return fetch(product + '/saveImages', {
         method: 'POST',
         body: images,
